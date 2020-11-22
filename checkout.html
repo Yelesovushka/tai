@@ -5,12 +5,11 @@
 	    <title>Abonement</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
-	    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+	    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 	    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 	    <link href="./checkout.css" rel="stylesheet">
-	    
-	    <script src="js/jquery.min.js"></script>
-	</head>	
+
+	</head>
 	<body>
 		<form method="" action="">
 			<section class="info">
@@ -30,14 +29,14 @@
 							</label>
 							<input class="info__input" type="tel" name="phone" id="phone" pattern="\+7\s([0-9]{3}\s[0-9]{3}\s[0-9]{2}\s[0-9]{2}" required="">
 							<p class="info__input-text">Мы вам позвоним, чтобы согласовать время</p>
-						</div>	
+						</div>
 						<div class="info__input-wrap">
 							<label class="info__item" for="mail">
 								Email
 							</label>
 							<input class="info__input" type="email" name="mail" id="mail" required="">
 							<p class="info__input-text">На ваш почтовый ящик будет отправлена информация о нашей встрече</p>
-						</div>	
+						</div>
 					</fieldset>
 
 					<fieldset class="info__place-time">
@@ -52,7 +51,7 @@
 								<label class="info__button-home" for="home">По моему адресу с доставкой</label>
 							</div>
 						</div>
-						<div class="info__address-spa hidden">
+						<div class="info__address-spa">
 							<div class="info__metro">
 								<label class="info__radio" for="mosk"><img src="./img/place-mosk.png"></label>
 								<input class="info__radiobutton" type="radio" name="place" id="mosk" value="Московская" checked>
@@ -66,7 +65,7 @@
 								<input class="info__radiobutton" type="radio" name="place" id="park" value="Парк Победы">
 							</div>
 						</div>
-						<div class="info__address-home info__input-wrap">
+						<div class="info__address-home info__input-wrap hidden">
 							<label class="info__item" for="address">
 								Адрес доставки
 							</label>
@@ -79,7 +78,7 @@
 							</label>
 							<input class="info__input" type="date" name="date" id="date">
 							<p class="info__input-text">Когда вам будет удобно подписать договор?</p>
-						</div>	
+						</div>
 					</fieldset>
 				</div>
 			</section>
@@ -119,6 +118,78 @@
 
 			</section>
 		</form>
+
+		<script>
+			var buttonSpa = document.querySelector('.info__place--spa');
+			var buttonHome = document.querySelector('.info__place--home');
+
+			var addressSpa = document.querySelector('.info__address-spa');
+			var addressHome = document.querySelector('.info__address-home');
+
+			buttonSpa.addEventListener('click', function() {
+        if (addressSpa.classList.contains('hidden')) {
+          addressSpa.classList.remove('hidden');
+          addressHome.classList.add('hidden');
+        }
+      });
+
+      buttonHome.addEventListener('click', function() {
+        if (addressHome.classList.contains('hidden')) {
+          addressHome.classList.remove('hidden');
+          addressSpa.classList.add('hidden');
+        }
+      });
+		</script>
+
+    <script>
+      var card = document.querySelector('.card');
+
+      var buttonRed = document.querySelector('.card__button--red');
+      var buttonBlue = document.querySelector('.card__button--blue');
+      var buttonGold = document.querySelector('.card__button--gold');
+
+      var totalRed = document.querySelector('.card__total--red');
+      var totalBlue = document.querySelector('.card__total--blue');
+      var totalGold = document.querySelector('.card__total--gold');
+
+      buttonRed.addEventListener('click', function() {
+        if (totalRed.classList.contains('hidden')) {
+          totalRed.classList.remove('hidden');
+          totalBlue.classList.add('hidden');
+          totalGold.classList.add('hidden');
+
+          card.classList.remove('card--gold');
+          card.classList.remove('card--blue');
+          card.classList.add('card--red');
+        }
+      });
+
+      buttonBlue.addEventListener('click', function() {
+        if (totalBlue.classList.contains('hidden')) {
+          totalBlue.classList.remove('hidden');
+          totalRed.classList.add('hidden');
+          totalGold.classList.add('hidden');
+
+          card.classList.remove('card--gold');
+          card.classList.remove('card--red');
+          card.classList.add('card--blue');
+        }
+      });
+
+      buttonGold.addEventListener('click', function() {
+        if (totalGold.classList.contains('hidden')) {
+          totalGold.classList.remove('hidden');
+          totalBlue.classList.add('hidden');
+          totalRed.classList.add('hidden');
+
+          card.classList.remove('card--red');
+          card.classList.remove('card--blue');
+          card.classList.add('card--gold');
+        }
+      });
+
+    </script>
+
 	</body>
 
 </html>
