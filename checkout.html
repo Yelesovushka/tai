@@ -7,97 +7,112 @@
 	    <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
 	    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
 	    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-	    <link href="checkout.css" rel="stylesheet">
+	    <link href="./checkout.css" rel="stylesheet">
 	    
 	    <script src="js/jquery.min.js"></script>
 	</head>	
 	<body>
 		<form method="" action="">
 			<section class="info">
-				<fieldset class="info__personal">
-					<legend class="info__text text">Информация для связи</legend>
-					<div class="info__input-wrap">
-						<label class="info__item" for="name">
-							Ваше имя
-						</label>
-						<input class="info__input" type="text" name="name" id="name" placeholder="Ваше имя">
-						<p class="info__input-text">Как к вам можно обращаться?</p>
-					</div>
-					<div class="info__input-wrap">
-						<label class="info__item" for="phone">
-							Мобильный телефон
-						</label>
-						<input class="info__input" type="tel" name="phone" id="phone" placeholder="Мобильный телефон" pattern="\+7\s([0-9]{3}\s[0-9]{3}\s[0-9]{2}\s[0-9]{2}" required="">
-						<p class="info__input-text">Мы вам позвоним, чтобы согласовать время</p>
-					</div>	
-					<div class="info__input-wrap">
-						<label class="info__item" for="mail">
-							Email
-						</label>
-						<input class="info__input" type="email" name="mail" id="mail" placeholder="Email" required="">
-						<p class="info__input-text">На ваш почтовый ящик будет отправлена информация о нашей встрече</p>
-					</div>	
-				</fieldset>
+				<div class="info__wrap">
+					<fieldset class="info__personal">
+						<legend class="info__text text">Информация для связи</legend>
+						<div class="info__input-wrap">
+							<label class="info__item" for="name">
+								Ваше имя
+							</label>
+							<input class="info__input" type="text" name="name" id="name">
+							<p class="info__input-text">Как к вам можно обращаться?</p>
+						</div>
+						<div class="info__input-wrap">
+							<label class="info__item" for="phone">
+								Мобильный телефон
+							</label>
+							<input class="info__input" type="tel" name="phone" id="phone" pattern="\+7\s([0-9]{3}\s[0-9]{3}\s[0-9]{2}\s[0-9]{2}" required="">
+							<p class="info__input-text">Мы вам позвоним, чтобы согласовать время</p>
+						</div>	
+						<div class="info__input-wrap">
+							<label class="info__item" for="mail">
+								Email
+							</label>
+							<input class="info__input" type="email" name="mail" id="mail" required="">
+							<p class="info__input-text">На ваш почтовый ящик будет отправлена информация о нашей встрече</p>
+						</div>	
+					</fieldset>
 
-				<fieldset class="info__place-time">
-					<legend class="info__text text">Где вам удобно подписать договор?</legend>
-					<div class="info__buttons">
-						<button class="info__button" type="button">В спа-центре</button>
-						<button class="info__button" type="button">По моему адресу с доставкой</button>
-					</div>
-					<div class="info__address-spa">
-						<label class="info__radio" for="mosk"><img src="./img/place-mosk.png"></label>
-						<input class="info__radiobutton" type="radio" name="place" id="mosk" value="Московская">
-
-						<label class="info__radio" for="frun"><img src="./img/place-frun.png"></label>
-						<input class="info__radiobutton" type="radio" name="place" id="frun" value="Фрунзенская">
-
-						<label class="info__radio" for="park"><img src="./img/place-park.png"></label>
-						<input class="info__radiobutton" type="radio" name="place" id="park" value="Парк Победы">
-					</div>
-					<div class="info__address-home info__input-wrap">
-						<label class="info__item" for="address">
-							Адрес доставки
-						</label>
-						<input class="info__input" type="text" name="address" id="address" placeholder="Адрес доставки">
-						<p class="info__input-text">Доставка в пределах КАД бесплатна</p>
-					</div>
-					<div class="info__input-wrap">
-						<label class="info__item" for="date">
-							Дата подписания договора
-						</label>
-						<input class="info__input" type="date" name="date" id="date" placeholder="Дата подписания договора">
-						<p class="info__input-text">Когда вам будет удобно подписать договор?</p>
-					</div>	
-				</fieldset>
+					<fieldset class="info__place-time">
+						<legend class="info__text text">Где вам удобно подписать договор?</legend>
+						<div class="info__buttons">
+							<div class="info__place info__place--spa">
+								<input class="info__button" type="radio" name="place" id="spa"  value="Spa" checked>
+								<label class="info__button-spa" for="spa">В спа-центре</label>
+							</div>
+							<div class="info__place info__place--home">
+								<input class="info__button" type="radio" name="place" id="home" value="Home">
+								<label class="info__button-home" for="home">По моему адресу с доставкой</label>
+							</div>
+						</div>
+						<div class="info__address-spa hidden">
+							<div class="info__metro">
+								<label class="info__radio" for="mosk"><img src="./img/place-mosk.png"></label>
+								<input class="info__radiobutton" type="radio" name="place" id="mosk" value="Московская" checked>
+							</div>
+							<div class="info__metro">
+								<label class="info__radio" for="frun"><img src="./img/place-frun.png"></label>
+								<input class="info__radiobutton" type="radio" name="place" id="frun" value="Фрунзенская">
+							</div>
+							<div class="info__metro">
+								<label class="info__radio" for="park"><img src="./img/place-park.png"></label>
+								<input class="info__radiobutton" type="radio" name="place" id="park" value="Парк Победы">
+							</div>
+						</div>
+						<div class="info__address-home info__input-wrap">
+							<label class="info__item" for="address">
+								Адрес доставки
+							</label>
+							<input class="info__input" type="text" name="address" id="address">
+							<p class="info__input-text">Доставка в пределах КАД бесплатна</p>
+						</div>
+						<div class="info__input-wrap">
+							<label class="info__item" for="date">
+								Дата подписания договора
+							</label>
+							<input class="info__input" type="date" name="date" id="date">
+							<p class="info__input-text">Когда вам будет удобно подписать договор?</p>
+						</div>	
+					</fieldset>
+				</div>
 			</section>
 
-			<section class="card">
-				<h2 class="card__head text">ваш заказ</h2>
+			<section class="card card--gold">
+				<h2 class="card__head text">Ваш заказ</h2>
 				<div class="card__buttons">
-					<label class="card__radio card__radio--red" for="red">Абонемент на 3 месяца <span>100 000 руб</span></label>
-					<input class="card__radiobutton card__button--red" type="radio" name="card" id="red" value="red">
-
-					<label class="card__radio card__radio--blue" for="blue">Абонемент на 6 месяцев <span>178 000 руб</span></label>
-					<input class="card__radiobutton card__button--blue" type="radio" name="card" id="blue" value="blue">
-
-					<label class="card__radio card__radio--gold" for="gold">Абонемент на 12 месяцев <span>320 000 руб</span></label>
-					<input class="card__radiobutton card__button--gold" type="radio" name="card" id="gold" value="gold">
+					<div class="card__button card__button--red">
+						<input class="card__radiobutton card__button--red" type="radio" name="card" id="red" value="red">
+						<label class="card__radio card__radio--red" for="red"><span>Абонемент на 2,5 месяца</span> <span>50 000 руб</span></label>
+					</div>
+					<div class="card__button card__button--blue">
+						<input class="card__radiobutton card__button--blue" type="radio" name="card" id="blue" value="blue"><label class="card__radio card__radio--blue" for="blue"><span>Абонемент на 4 месяца</span><span>75 000 руб</span></label>
+					</div>
+					<div class="card__button card__button--gold">
+						<input class="card__radiobutton card__button--gold" type="radio" name="card" id="gold" value="gold">
+						<label class="card__radio card__radio--gold" for="gold"><span>Абонемент на 6 месяцев</span> <span>100 000 руб</span></label>
+					</div>
 				</div>
 
-				<div class="card__total card__total--red">
-					<p class="card__total-text">Абонемент на 3 месяца</p>
-					<p>Итого:<span>100 000 руб</span></p>
+				<div class="card__total card__total--red hidden">
+					<p class="card__total-text">Абонемент на 2,5 месяца</p>
+					<p>Итого:<span>50 000 руб</span></p>
 				</div>
 
-				<div class="card__total card__total--blue">
-					<p class="card__total-text">Абонемент на 3 месяцев</p>
-					<p>Итого:<span>178 000 руб</span></p>
+				<div class="card__total card__total--blue hidden">
+					<p class="card__total-text">Абонемент на 4 месяца</p>
+					<p>Итого:<span>75 000 руб</span></p>
 				</div>
 
 				<div class="card__total card__total--gold">
-					<p class="card__total-text">Абонемент на 3 месяцев</p>
-					<p>Итого:<span>320 000 руб</span></p>
+					<p class="card__total-text">Абонемент на 6 месяцев</p>
+					<p>Итого: <span> 100 000 руб</span></p>
 				</div>
 
 				<button class="card__btn" type="submit">Заказать</button>
@@ -105,6 +120,5 @@
 			</section>
 		</form>
 	</body>
-
 
 </html>
