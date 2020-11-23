@@ -1,7 +1,0 @@
-/.idea
-/.npmignore
-/bower.json
-/gulpfile.js
-/index.html
-/demo/
-*.coffee
