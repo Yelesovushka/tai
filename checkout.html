@@ -9,33 +9,38 @@
 	    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 	    <link href="./checkout.css" rel="stylesheet">
 
+      <link rel="stylesheet" href="./pickmeup/css/pickmeup.css" type="text/css">
+
 	</head>
 	<body>
-		<form method="" action="">
+		<form method="" action="" name="information">
 			<section class="info">
 				<div class="info__wrap">
 					<fieldset class="info__personal">
 						<legend class="info__text text">Информация для связи</legend>
 						<div class="info__input-wrap">
+              <input class="info__input" type="text" name="name" id="name" required="" placeholder="Ваше имя">
 							<label class="info__item" for="name">
 								Ваше имя
 							</label>
-							<input class="info__input" type="text" name="name" id="name">
-							<p class="info__input-text">Как к вам можно обращаться?</p>
+
+							<span class="info__input-text">Как к вам можно обращаться?</span>
 						</div>
 						<div class="info__input-wrap">
+              <input class="info__input" type="tel" name="phone" id="phone" required="" placeholder="7 (999) 999-9999">
 							<label class="info__item" for="phone">
 								Мобильный телефон
 							</label>
-							<input class="info__input" type="tel" name="phone" id="phone" pattern="\+7\s([0-9]{3}\s[0-9]{3}\s[0-9]{2}\s[0-9]{2}" required="">
-							<p class="info__input-text">Мы вам позвоним, чтобы согласовать время</p>
+
+							<span class="info__input-text">Мы вам позвоним, чтобы согласовать время</span>
 						</div>
 						<div class="info__input-wrap">
+              <input class="info__input" type="email" name="mail" id="mail" required="" placeholder="abcd@efg.hi">
 							<label class="info__item" for="mail">
 								Email
 							</label>
-							<input class="info__input" type="email" name="mail" id="mail" required="">
-							<p class="info__input-text">На ваш почтовый ящик будет отправлена информация о нашей встрече</p>
+
+							<span class="info__input-text">На ваш почтовый ящик будет отправлена информация о нашей встрече</span>
 						</div>
 					</fieldset>
 
@@ -43,81 +48,119 @@
 						<legend class="info__text text">Где вам удобно подписать договор?</legend>
 						<div class="info__buttons">
 							<div class="info__place info__place--spa">
-								<input class="info__button" type="radio" name="place" id="spa"  value="Spa" checked>
-								<label class="info__button-spa" for="spa">В спа-центре</label>
+								<input type="radio" name="place" id="spa"  value="Spa" checked="">
+								<label class="info__button" for="spa">В спа-центре</label>
 							</div>
 							<div class="info__place info__place--home">
-								<input class="info__button" type="radio" name="place" id="home" value="Home">
-								<label class="info__button-home" for="home">По моему адресу с доставкой</label>
+								<input type="radio" name="place" id="home" value="Home">
+								<label class="info__button" for="home">По моему адресу с доставкой</label>
 							</div>
 						</div>
 						<div class="info__address-spa">
 							<div class="info__metro">
-								<label class="info__radio" for="mosk"><img src="./img/place-mosk.png"></label>
-								<input class="info__radiobutton" type="radio" name="place" id="mosk" value="Московская" checked>
+                <input class="info__radiobutton" type="radio" name="address-spa" id="mosk" value="Московская" checked="">
+								<label class="info__radio" for="mosk">
+                  <img src="./img/map-Mosk.png">
+                  <span class="info__station">Московская</span>
+                  <span class="info__address">Московский пр. 183-185Б, ЖК “Граф Орлов”</span>
+                </label>
+
 							</div>
 							<div class="info__metro">
-								<label class="info__radio" for="frun"><img src="./img/place-frun.png"></label>
-								<input class="info__radiobutton" type="radio" name="place" id="frun" value="Фрунзенская">
+                <input class="info__radiobutton" type="radio" name="address-spa" id="frun" value="Фрунзенская">
+								<label class="info__radio" for="frun">
+                  <img src="./img/map-Frun.png">
+                  <span class="info__station">Фрунзенская</span>
+                  <span class="info__address">пл. Чернышевского, 6</span>
+                </label>
+
 							</div>
 							<div class="info__metro">
-								<label class="info__radio" for="park"><img src="./img/place-park.png"></label>
-								<input class="info__radiobutton" type="radio" name="place" id="park" value="Парк Победы">
+                <input class="info__radiobutton" type="radio" name="address-spa" id="park" value="Парк Победы">
+								<label class="info__radio" for="park">
+                  <img src="./img/map-Park.png">
+                  <span class="info__station">Парк Победы</span>
+                  <span class="info__address">Смоленская ул., 14</span>
+                </label>
+
 							</div>
 						</div>
 						<div class="info__address-home info__input-wrap hidden">
+              <input class="info__input" type="text" name="address" id="address" required="" placeholder="Адрес доставки">
 							<label class="info__item" for="address">
 								Адрес доставки
 							</label>
-							<input class="info__input" type="text" name="address" id="address">
-							<p class="info__input-text">Доставка в пределах КАД бесплатна</p>
+
+							<span class="info__input-text">Доставка в пределах КАД бесплатна</span>
 						</div>
 						<div class="info__input-wrap">
+              <input class="info__input date" type="text" name="date" id="date" required="" placeholder="Выберите дату">
 							<label class="info__item" for="date">
 								Дата подписания договора
 							</label>
-							<input class="info__input" type="date" name="date" id="date">
-							<p class="info__input-text">Когда вам будет удобно подписать договор?</p>
+
+							<span class="info__input-text">Когда вам будет удобно подписать договор?</span>
 						</div>
 					</fieldset>
 				</div>
+        <button class="info__btn" type="submit">Заказать</button>
 			</section>
 
 			<section class="card card--gold">
-				<h2 class="card__head text">Ваш заказ</h2>
-				<div class="card__buttons">
-					<div class="card__button card__button--red">
-						<input class="card__radiobutton card__button--red" type="radio" name="card" id="red" value="red">
-						<label class="card__radio card__radio--red" for="red"><span>Абонемент на 2,5 месяца</span> <span>50 000 руб</span></label>
-					</div>
-					<div class="card__button card__button--blue">
-						<input class="card__radiobutton card__button--blue" type="radio" name="card" id="blue" value="blue"><label class="card__radio card__radio--blue" for="blue"><span>Абонемент на 4 месяца</span><span>75 000 руб</span></label>
-					</div>
-					<div class="card__button card__button--gold">
-						<input class="card__radiobutton card__button--gold" type="radio" name="card" id="gold" value="gold">
-						<label class="card__radio card__radio--gold" for="gold"><span>Абонемент на 6 месяцев</span> <span>100 000 руб</span></label>
-					</div>
-				</div>
+        <div class="container">
+  				<h2 class="card__head text">Ваш заказ</h2>
+  				<div class="card__buttons">
+  					<div class="card__button card__button--red">
+  						<input class="card__radiobutton card__button--red" type="radio" name="card" id="red" value="red">
+  						<label class="card__radio card__radio--red" for="red"><span>Абонемент на 2,5 месяца</span> <span>50 000 руб</span></label>
+  					</div>
+  					<div class="card__button card__button--blue">
+  						<input class="card__radiobutton card__button--blue" type="radio" name="card" id="blue" value="blue">
+              <label class="card__radio card__radio--blue" for="blue"><span>Абонемент на 4 месяца</span><span>75 000 руб</span></label>
+  					</div>
+  					<div class="card__button card__button--gold">
+  						<input class="card__radiobutton card__button--gold" type="radio" name="card" id="gold" value="gold" checked="">
+  						<label class="card__radio card__radio--gold" for="gold"><span>Абонемент на 6 месяцев</span> <span>100 000 руб</span></label>
+  					</div>
+  				</div>
 
-				<div class="card__total card__total--red hidden">
-					<p class="card__total-text">Абонемент на 2,5 месяца</p>
-					<p>Итого:<span>50 000 руб</span></p>
-				</div>
+  				<div class="card__total card__total--red hidden">
+  					<span class="card__total-text">Абонемент на 2,5 месяца</span>
+  					<span>Итого: </span><span class="card__price">50 000 руб</span>
+  				</div>
 
-				<div class="card__total card__total--blue hidden">
-					<p class="card__total-text">Абонемент на 4 месяца</p>
-					<p>Итого:<span>75 000 руб</span></p>
-				</div>
+  				<div class="card__total card__total--blue hidden">
+  					<span class="card__total-text">Абонемент на 4 месяца</span>
+  					<span>Итого: </span><span class="card__price">75 000 руб</span>
+  				</div>
 
-				<div class="card__total card__total--gold">
-					<p class="card__total-text">Абонемент на 6 месяцев</p>
-					<p>Итого: <span> 100 000 руб</span></p>
-				</div>
+  				<div class="card__total card__total--gold">
+  					<span class="card__total-text">Абонемент на 6 месяцев</span>
+  					<span>Итого: </span><span class="card__price"> 100 000 руб</span>
+  				</div>
 
-				<button class="card__btn" type="submit">Заказать</button>
+  				<button class="card__btn" type="submit">Заказать</button>
+
+        </div>
 
 			</section>
 		</form>
+
+    <div class="popup hidden">
+      <h2>спасибо за ваш заказ.</h2>
+      <p>В течение 10 минут мы позвоним вам, чтобы согласовать время подписания договора.</p>
+      <button>Ок</button>
+    </div>
+
+    <div class="pickmeup pmu-view-days hidden" style="left: 241px; top: 145.344px;"><div class="pmu-instance"><nav><div class="pmu-prev pmu-button" style="visibility: visible;">◀</div><div class="pmu-month pmu-button">November, 2020</div><div class="pmu-next pmu-button" style="visibility: visible;">▶</div></nav><nav class="pmu-day-of-week"><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div><div>Su</div></nav><div class="pmu-years"><div class="pmu-button">2014</div><div class="pmu-button">2015</div><div class="pmu-button">2016</div><div class="pmu-button">2017</div><div class="pmu-button">2018</div><div class="pmu-button">2019</div><div class="pmu-selected pmu-button">2020</div><div class="pmu-button">2021</div><div class="pmu-button">2022</div><div class="pmu-button">2023</div><div class="pmu-button">2024</div><div class="pmu-button">2025</div></div><div class="pmu-months"><div class="pmu-button">Jan</div><div class="pmu-button">Feb</div><div class="pmu-button">Mar</div><div class="pmu-button">Apr</div><div class="pmu-button">May</div><div class="pmu-button">Jun</div><div class="pmu-button">Jul</div><div class="pmu-button">Aug</div><div class="pmu-button">Sep</div><div class="pmu-button">Oct</div><div class="pmu-selected pmu-button">Nov</div><div class="pmu-button">Dec</div></div><div class="pmu-days"><div class="pmu-not-in-month pmu-button">26</div><div class="pmu-not-in-month pmu-button">27</div><div class="pmu-not-in-month pmu-button">28</div><div class="pmu-not-in-month pmu-button">29</div><div class="pmu-not-in-month pmu-button">30</div><div class="pmu-not-in-month pmu-saturday pmu-button">31</div><div class="pmu-sunday pmu-button">1</div><div class="pmu-button">2</div><div class="pmu-button">3</div><div class="pmu-button">4</div><div class="pmu-button">5</div><div class="pmu-button">6</div><div class="pmu-saturday pmu-button">7</div><div class="pmu-sunday pmu-button">8</div><div class="pmu-button">9</div><div class="pmu-button">10</div><div class="pmu-button">11</div><div class="pmu-button">12</div><div class="pmu-button">13</div><div class="pmu-saturday pmu-button">14</div><div class="pmu-sunday pmu-button">15</div><div class="pmu-button">16</div><div class="pmu-button">17</div><div class="pmu-button">18</div><div class="pmu-button">19</div><div class="pmu-button">20</div><div class="pmu-saturday pmu-button">21</div><div class="pmu-sunday pmu-button">22</div><div class="pmu-selected pmu-today pmu-button">23</div><div class="pmu-button">24</div><div class="pmu-button">25</div><div class="pmu-button">26</div><div class="pmu-button">27</div><div class="pmu-saturday pmu-button">28</div><div class="pmu-sunday pmu-button">29</div><div class="pmu-button">30</div><div class="pmu-not-in-month pmu-button">1</div><div class="pmu-not-in-month pmu-button">2</div><div class="pmu-not-in-month pmu-button">3</div><div class="pmu-not-in-month pmu-button">4</div><div class="pmu-not-in-month pmu-saturday pmu-button">5</div><div class="pmu-not-in-month pmu-sunday pmu-button">6</div></div></div></div>
+
+    <script src="./pickmeup/js/pickmeup.js"></script>
+    <script>
+      pickmeup('.date', {
+        format: 'd-B-Y'
+      });
+      pickmeup('.date');
+    </script>
 
 		<script>
 			var buttonSpa = document.querySelector('.info__place--spa');
@@ -187,6 +230,43 @@
           card.classList.add('card--gold');
         }
       });
+
+    </script>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery.validate.min.js"></script>
+
+    <script src="./js/jquery.inputmask.js"></script>
+    <script>
+      var selector = document.getElementById("phone");
+
+      var im = new Inputmask("+7 (999) 999-9999");
+      im.mask(selector);
+    </script>
+
+    <script>
+
+      (function() {
+        ("form[name='information']").validate({
+          rules: {
+            name: "required",
+            phone: "required",
+            email: {
+              required: true,
+              email: true
+            },
+            place: "required",
+            address-spa: "required",
+            date: "required"
+          },
+          messages: {
+
+          },
+          submitHandler: function(form) {
+            form.submit();
+          }
+      });
+});
 
     </script>
 

@@ -1,13 +1,15 @@
 @font-face {
   font-family: "FM Bolyar Sans Pro";
-  src: url("./fonts/FMBolyarSansPro-400.woff2") format("woff2"),
-    url("./fonts/FMBolyarSansPro-400.woff") format("woff");
+  src: url("./font/FMBolyarSansPro-400.woff2") format("woff2"),
+
+    url("./font/FMBolyarSansPro-400.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 /*сброс*/
 body {
+  position: relative;
   margin: 0;
   overflow-x: hidden;
   box-sizing: border-box;
@@ -57,22 +59,22 @@ form {
 .text {
   margin-bottom: 45px;
 
-  font-family: "FM Bolyar Sans Pro";
+  font-family: "FM Bolyar Sans Pro", "Arial", sans-serif;
   font-size: 28px;
   line-height: 36px;
   color: rgba(0, 0, 0, 1);
 }
 
 .hidden {
-    display: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  position: absolute;
 }
 
 /*блок информации*/
 .info {
-  padding-top: 46px;
-    padding-left: 44px;
-    padding-right: 20px;
-    width: 56%;
+  width: 56%;
 }
 
 .info__wrap {
@@ -80,9 +82,15 @@ form {
   flex-direction: column;
 
   width: 420px;
+
+  padding-top: 46px;
+  padding-left: 44px;
+  padding-right: 20px;
 }
 
 .info__input-wrap {
+   display: flex;
+  flex-flow: column;
   position: relative;
 
   margin-bottom: 44px;
@@ -95,8 +103,7 @@ form {
 .info__input {
   width: 100%;
 
-  height: 30px;
-  padding: 8px 0;
+  padding: 19px 0 6px;
 
   font-size: 18px;
   line-height: 26.8px;
@@ -108,24 +115,55 @@ form {
   border-bottom: 1px rgba(196, 196, 196, 1) solid;
 }
 
-.info__input:hover,
 .info__input:active,
 .info__input:focus {
   outline: none;
   border-bottom: 2px rgba(255, 107, 0, 1) solid;
+
 }
 
+.info__input:focus + label {
+  color: rgba(255, 107, 0, 1);
+}
 
 .info__item {
   position: absolute;
-  top: 22px;
+  top: 0;
   z-index: 1;
 
   font-size: 14px;
   line-height: 21px;
   color: rgba(105, 105, 105, 1);
+
+  transition: all 0.2s;
+  touch-action: manipulation;
 }
 
+.info__item:focus {
+  outline: none;
+}
+
+.info__input:placeholder-shown + label {
+  cursor: text;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  transform: translate(0, 1.425rem) scale(1);;
+}
+
+::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
+}
+
+.info__input:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+.info__input:not(:placeholder-shown) + label,
+.info__input:focus + label {
+  transform: translate(0, 0) scale(1);
+  cursor: pointer;
+}
 
 .info__input-text {
   margin-top: 3px;
@@ -165,16 +203,47 @@ form {
   font-size: 18px;
   line-height: 26.8px;
   color: rgba(105, 105, 105, 1);
+
+  border-bottom: 1px rgba(196, 196, 196, 1) solid;
 }
 
 .info__buttons input[type=radio] {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  position: absolute;
+}
+
+.info__place {
+  position: relative;
+}
+
+.info__button {
+  padding-bottom: 26px;
+
+  cursor: pointer;
+}
+
+.info__button::before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  z-index: 1;
+  width: 100%;
+  height: 3px;
+  background-color: rgba(255, 107, 0, 1);
+
+  opacity: 0;
+}
+
+.info__button:hover::before {
+  opacity: 1;
 }
 
 .info__place--spa:hover,
 .info__place--spa:focus {
   outline: none;
-  border-bottom: 3px rgba(255, 107, 0, 1) solid;
 }
 
 .info__place input[type=radio]:checked + label {
@@ -182,35 +251,58 @@ form {
   color: rgba(0, 0, 0, 1);
 }
 
-.info__place--home:hover,
-.info__place--home:focus {
-  outline: none;
-  border-bottom: 3px rgba(255, 107, 0, 1) solid;
-}
-
-.info__button--spa,
-.info__button--home {
-  border-bottom: 1px rgba(196, 196, 196, 1) solid;
+.info__place input[type=radio]:checked + label::before {
+  opacity: 1;
 }
 
 .info__address-spa input[type=radio] {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  position: absolute;
 }
 
 .info__radio {
-  display: inline-block;
-}
-
-.info__metro {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: baseline;
+  height: 80px;
   padding: 20px;
   border-radius: 18px;
+  cursor: pointer;
+}
+
+.info__radio img {
+  margin-right: 22px;
+}
+
+.info__station {
+  margin-bottom: 4px;
+  padding-left: 30px;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 1);
+
+  background: url(./img/metro.png) no-repeat 0 center;
+}
+
+.info__address {
+  max-width: 180px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  color: rgba(99, 78, 62, 1);
 }
 
 .info__metro:hover {
   background-color: rgba(255, 107, 0, 0.05);
 }
 
-.info__metro:active {
+.info__metro:focus {
   background-color: rgba(255, 107, 0, 1);
 }
 
@@ -225,12 +317,22 @@ form {
 
 /*блок с сабмитом*/
 .card {
+  width: 50%;
+  height: 100vh;
+
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.container {
   display: flex;
   flex-direction: column;
 
-  width: 50%;
+  max-width: 675px;
 
   padding: 46px 50px 0;
+  margin: 0 auto;
 }
 
 .card--gold {
@@ -252,6 +354,8 @@ form {
   max-width: 576px;
   width: 100%;
   height: 112px;
+
+  border-bottom: 1px rgba(196, 196, 196, 1) solid;
 }
 
 .card__buttons span:first-child {
@@ -273,10 +377,15 @@ form {
 }
 
 .card__buttons input[type=radio] {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  position: absolute;
 }
 
 .card__button {
+  position: relative;
+
   width: 180px;
 }
 
@@ -284,10 +393,14 @@ form {
   display: inline-block;
 
   padding-top: 53px;
+  padding-bottom: 20px;
+  cursor: pointer;
 }
+
 .card__radio--red {
   color: rgba(99, 78, 62, 1);
 }
+
 .card__radio--blue {
   color: rgba(63, 82, 99, 1);
 }
@@ -296,8 +409,25 @@ form {
   color: rgba(74, 64, 45, 1);
 }
 
-.card__button:hover {
-  border-bottom: 3px rgba(255, 107, 0, 1) solid;
+.card__radio::before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  z-index: 1;
+  width: 100%;
+  height: 3px;
+  background-color: rgba(255, 107, 0, 1);
+
+  opacity: 0;
+}
+
+.card__radio:hover::before {
+  opacity: 1;
+}
+
+.card__button input[type=radio]:checked + label::before {
+  opacity: 1;
 }
 
 .card__button--gold {
@@ -317,6 +447,9 @@ form {
 
 .card__total {
   padding-top: 394px;
+  width: 100%;
+  height: 80vh;
+  max-height: 65px;
 
   text-align: center;
   font-size: 18px;
@@ -328,6 +461,7 @@ form {
 }
 
 .card__total-text {
+  display: block;
   padding-bottom: 7px;
 
   font-size: 20px;
@@ -335,7 +469,7 @@ form {
   font-weight: 700;
 }
 
-.card__total span {
+.card__price {
   display: inline-block;
 
   font-size: 24px;
@@ -383,6 +517,7 @@ form {
 
   background-color: rgba(255, 107, 0, 1);
   border-radius: 11px;
+  cursor: pointer;
 }
 
 .card__btn:hover,
@@ -400,7 +535,52 @@ form {
   height: 11px;
   background-image: url(./img/arrow.png);
   background-repeat: no-repeat;
+}
 
+
+
+.popup {
+  width: 402px;
+  height: 208px;
+  padding: 76px 95px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  position: absolute;
+  text-align: center;
+}
+
+.popup h2 {
+  font-family: "FM Bolyar Sans Pro", "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 149%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 21px;
+}
+
+
+.popup p {
+  font-family: Work Sans;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: rgba(105, 105, 105, 1);
+  margin-bottom: 50px;
+}
+
+.popup button {
+  width: 138px;
+  height: 58px;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(255, 107, 0, 1);
+  box-shadow: 0px 2px 4px rgba(255, 114, 0, 0.25);
+  border-radius: 12px;
+}
+
+.info__btn {
+  display: none;
 }
 
 @media (max-width: 1034px) {
@@ -412,16 +592,26 @@ form {
     margin-bottom: 32px;
   }
 
+  .card__btn {
+    display: none;
+  }
+
   .card {
-    width: auto;
+    position: relative;
+
+    width: 100%;
+    height: auto;
+
+    order: -1;
+  }
+
+  .container {
     min-width: 290px;
     max-width: 320px;
     padding: 47px 10px 0 20px;
     margin: 0 auto;
 
     text-align: center;
-
-    order: -1;
   }
 
   .card__buttons {
@@ -429,6 +619,8 @@ form {
 
     width: 290px;
     height: auto;
+
+    border-bottom: none;
   }
 
   .card__button {
@@ -464,10 +656,11 @@ form {
     top: 25px;
     left: 0;
 
-      border: 3px rgba(255, 241, 210, 1) solid;
-      border-radius: 50px;
-      box-shadow: 0 0 0 2px rgba(255, 107, 0, 1);
-      background-color: rgba(255, 241, 210, 1);
+    border: 3px rgba(255, 241, 210, 1) solid;
+    border-radius: 50px;
+    box-shadow: 0 0 0 2px rgba(255, 107, 0, 1);
+    background-color: transparent;
+    opacity: 1;
   }
 
   .card__button input[type=radio]:checked + label::before {
@@ -476,6 +669,7 @@ form {
 
   .card__total {
     padding-top: 244px;
+    padding-bottom: 56px;
 
     background-position: center 45px;
   }
@@ -493,19 +687,19 @@ form {
   }
 
   .info {
-    width: auto;
-    min-width: 280px;
-    max-width: 320px;
+    width: 100%;
+  }
+
+  .info__wrap {
+    width: 280px;
     padding: 36px 20px 0;
     margin: 0 auto;
   }
 
-  .info__wrap {
-    width: auto;
-  }
-
   .info__buttons {
     flex-direction: column;
+
+    border-bottom: none;
   }
 
   .info__place {
@@ -564,22 +758,59 @@ form {
     border-bottom: none;
   }
 
-  .info__metro:first-child img {
-    display: none;
-  }
-
-  .info__metro:first-child {
-    background-image: url(.img/place-mosk-mb.png);
-    background-repeat: no-repeat;
-  }
-
   .info__metro {
-    display: block;
-    padding: 15px 20px;
-    width: 280px;
-    margin: -20px;
-
+    margin-left: -20px;
+    margin-right: -20px;
     border-radius: 0;
   }
 
+  .info__radio {
+    border-radius: 0;
+  }
+
+
+  .info__btn {
+    display: block;
+    position: relative;
+
+    width: 280px;
+    height: 58px;
+
+    margin: 43px auto;
+    padding: 20px 24px;
+
+    text-align: left;
+    font-size: 16px;
+    line-height: 16px;
+    color: rgba(255, 255, 255, 1);
+
+    background-color: rgba(255, 107, 0, 1);
+    border-radius: 11px;
+    cursor: pointer;
+  }
+
+  .info__btn:hover,
+  .info__btn:focus,
+  .info__btn:active {
+    outline: none;
+  }
+
+  .info__btn::before {
+    content: "";
+    position: absolute;
+    right: 24px;
+    top: 24.5px;
+    width: 18px;
+    height: 11px;
+    background-image: url(./img/arrow.png);
+    background-repeat: no-repeat;
+  }
+
+}
+
+
+@media (min-width: 1400px) {
+  .info__wrap {
+    margin: 0 auto;
+  }
 }
