@@ -2,18 +2,17 @@
 <html lang="en">
 	<head>
 	    <meta charset="utf-8">
-	    <title>Abonement</title>
+	    <title>Абонемент</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
 	    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-	    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+      <link rel="stylesheet" href="./pickmeup.css" type="text/css">
 	    <link href="./checkout.css" rel="stylesheet">
-
-      <link rel="stylesheet" href="./pickmeup/css/pickmeup.css" type="text/css">
 
 	</head>
 	<body>
-		<form method="" action="" name="information">
+		<form method="" action="" name="information" class="js-form">
 			<section class="info">
 				<div class="info__wrap">
 					<fieldset class="info__personal">
@@ -27,7 +26,7 @@
 							<span class="info__input-text">Как к вам можно обращаться?</span>
 						</div>
 						<div class="info__input-wrap">
-              <input class="info__input" type="tel" name="phone" id="phone" required="" placeholder="7 (999) 999-9999">
+              <input class="info__input js-phone" type="tel" name="phone" id="phoneNumber" required="" placeholder="7 (999) 999-9999">
 							<label class="info__item" for="phone">
 								Мобильный телефон
 							</label>
@@ -93,8 +92,8 @@
 
 							<span class="info__input-text">Доставка в пределах КАД бесплатна</span>
 						</div>
-						<div class="info__input-wrap">
-              <input class="info__input date" type="text" name="date" id="date" required="" placeholder="Выберите дату">
+						<div class="info__input-wrap info__input-wrap--date">
+              <input class="info__input js-date" type="text" name="date" id="date" required="" placeholder="Выберите дату">
 							<label class="info__item" for="date">
 								Дата подписания договора
 							</label>
@@ -125,16 +124,19 @@
   				</div>
 
   				<div class="card__total card__total--red hidden">
+            <div class="card__image card__image--red"></div>
   					<span class="card__total-text">Абонемент на 2,5 месяца</span>
   					<span>Итого: </span><span class="card__price">50 000 руб</span>
   				</div>
 
   				<div class="card__total card__total--blue hidden">
+            <div class="card__image card__image--blue"></div>
   					<span class="card__total-text">Абонемент на 4 месяца</span>
   					<span>Итого: </span><span class="card__price">75 000 руб</span>
   				</div>
 
   				<div class="card__total card__total--gold">
+            <div class="card__image card__image--gold"></div>
   					<span class="card__total-text">Абонемент на 6 месяцев</span>
   					<span>Итого: </span><span class="card__price"> 100 000 руб</span>
   				</div>
@@ -146,129 +148,21 @@
 			</section>
 		</form>
 
-    <div class="popup hidden">
+    <section class="popup hidden">
+      <div class="popup__content">
       <h2>спасибо за ваш заказ.</h2>
       <p>В течение 10 минут мы позвоним вам, чтобы согласовать время подписания договора.</p>
-      <button>Ок</button>
+      <button type="button">Ок</button>
     </div>
-
-    <div class="pickmeup pmu-view-days hidden" style="left: 241px; top: 145.344px;"><div class="pmu-instance"><nav><div class="pmu-prev pmu-button" style="visibility: visible;">◀</div><div class="pmu-month pmu-button">November, 2020</div><div class="pmu-next pmu-button" style="visibility: visible;">▶</div></nav><nav class="pmu-day-of-week"><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div><div>Su</div></nav><div class="pmu-years"><div class="pmu-button">2014</div><div class="pmu-button">2015</div><div class="pmu-button">2016</div><div class="pmu-button">2017</div><div class="pmu-button">2018</div><div class="pmu-button">2019</div><div class="pmu-selected pmu-button">2020</div><div class="pmu-button">2021</div><div class="pmu-button">2022</div><div class="pmu-button">2023</div><div class="pmu-button">2024</div><div class="pmu-button">2025</div></div><div class="pmu-months"><div class="pmu-button">Jan</div><div class="pmu-button">Feb</div><div class="pmu-button">Mar</div><div class="pmu-button">Apr</div><div class="pmu-button">May</div><div class="pmu-button">Jun</div><div class="pmu-button">Jul</div><div class="pmu-button">Aug</div><div class="pmu-button">Sep</div><div class="pmu-button">Oct</div><div class="pmu-selected pmu-button">Nov</div><div class="pmu-button">Dec</div></div><div class="pmu-days"><div class="pmu-not-in-month pmu-button">26</div><div class="pmu-not-in-month pmu-button">27</div><div class="pmu-not-in-month pmu-button">28</div><div class="pmu-not-in-month pmu-button">29</div><div class="pmu-not-in-month pmu-button">30</div><div class="pmu-not-in-month pmu-saturday pmu-button">31</div><div class="pmu-sunday pmu-button">1</div><div class="pmu-button">2</div><div class="pmu-button">3</div><div class="pmu-button">4</div><div class="pmu-button">5</div><div class="pmu-button">6</div><div class="pmu-saturday pmu-button">7</div><div class="pmu-sunday pmu-button">8</div><div class="pmu-button">9</div><div class="pmu-button">10</div><div class="pmu-button">11</div><div class="pmu-button">12</div><div class="pmu-button">13</div><div class="pmu-saturday pmu-button">14</div><div class="pmu-sunday pmu-button">15</div><div class="pmu-button">16</div><div class="pmu-button">17</div><div class="pmu-button">18</div><div class="pmu-button">19</div><div class="pmu-button">20</div><div class="pmu-saturday pmu-button">21</div><div class="pmu-sunday pmu-button">22</div><div class="pmu-selected pmu-today pmu-button">23</div><div class="pmu-button">24</div><div class="pmu-button">25</div><div class="pmu-button">26</div><div class="pmu-button">27</div><div class="pmu-saturday pmu-button">28</div><div class="pmu-sunday pmu-button">29</div><div class="pmu-button">30</div><div class="pmu-not-in-month pmu-button">1</div><div class="pmu-not-in-month pmu-button">2</div><div class="pmu-not-in-month pmu-button">3</div><div class="pmu-not-in-month pmu-button">4</div><div class="pmu-not-in-month pmu-saturday pmu-button">5</div><div class="pmu-not-in-month pmu-sunday pmu-button">6</div></div></div></div>
-
-    <script src="./pickmeup/js/pickmeup.js"></script>
-    <script>
-      pickmeup('.date', {
-        format: 'd-B-Y'
-      });
-      pickmeup('.date');
-    </script>
-
-		<script>
-			var buttonSpa = document.querySelector('.info__place--spa');
-			var buttonHome = document.querySelector('.info__place--home');
-
-			var addressSpa = document.querySelector('.info__address-spa');
-			var addressHome = document.querySelector('.info__address-home');
-
-			buttonSpa.addEventListener('click', function() {
-        if (addressSpa.classList.contains('hidden')) {
-          addressSpa.classList.remove('hidden');
-          addressHome.classList.add('hidden');
-        }
-      });
-
-      buttonHome.addEventListener('click', function() {
-        if (addressHome.classList.contains('hidden')) {
-          addressHome.classList.remove('hidden');
-          addressSpa.classList.add('hidden');
-        }
-      });
-		</script>
-
-    <script>
-      var card = document.querySelector('.card');
-
-      var buttonRed = document.querySelector('.card__button--red');
-      var buttonBlue = document.querySelector('.card__button--blue');
-      var buttonGold = document.querySelector('.card__button--gold');
-
-      var totalRed = document.querySelector('.card__total--red');
-      var totalBlue = document.querySelector('.card__total--blue');
-      var totalGold = document.querySelector('.card__total--gold');
-
-      buttonRed.addEventListener('click', function() {
-        if (totalRed.classList.contains('hidden')) {
-          totalRed.classList.remove('hidden');
-          totalBlue.classList.add('hidden');
-          totalGold.classList.add('hidden');
-
-          card.classList.remove('card--gold');
-          card.classList.remove('card--blue');
-          card.classList.add('card--red');
-        }
-      });
-
-      buttonBlue.addEventListener('click', function() {
-        if (totalBlue.classList.contains('hidden')) {
-          totalBlue.classList.remove('hidden');
-          totalRed.classList.add('hidden');
-          totalGold.classList.add('hidden');
-
-          card.classList.remove('card--gold');
-          card.classList.remove('card--red');
-          card.classList.add('card--blue');
-        }
-      });
-
-      buttonGold.addEventListener('click', function() {
-        if (totalGold.classList.contains('hidden')) {
-          totalGold.classList.remove('hidden');
-          totalBlue.classList.add('hidden');
-          totalRed.classList.add('hidden');
-
-          card.classList.remove('card--red');
-          card.classList.remove('card--blue');
-          card.classList.add('card--gold');
-        }
-      });
-
-    </script>
+    </section>
 
     <script src="./js/jquery.min.js"></script>
     <script src="./js/jquery.validate.min.js"></script>
 
     <script src="./js/jquery.inputmask.js"></script>
-    <script>
-      var selector = document.getElementById("phone");
+    <script src="./js/pickmeup.min.js"></script>
 
-      var im = new Inputmask("+7 (999) 999-9999");
-      im.mask(selector);
-    </script>
-
-    <script>
-
-      (function() {
-        ("form[name='information']").validate({
-          rules: {
-            name: "required",
-            phone: "required",
-            email: {
-              required: true,
-              email: true
-            },
-            place: "required",
-            address-spa: "required",
-            date: "required"
-          },
-          messages: {
-
-          },
-          submitHandler: function(form) {
-            form.submit();
-          }
-      });
-});
-
-    </script>
+    <script src="./js/checkout.js"></script>
 
 	</body>
 
