@@ -260,7 +260,10 @@ a:hover {
 }
 
 .logo-brdr {
-    margin: 44px 0;
+        display: block;
+    margin: auto;
+    margin-top: 43px;
+    margin-bottom: 16px;
 }
 
 .home-two .h2 {
