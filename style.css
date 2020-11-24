@@ -23,6 +23,15 @@
     font-style: normal;
 }
 
+@font-face {
+  font-family: "FMBolyar Sans Pro 700";
+  src: url("./font/FMBolyarSansPro-700.woff2") format("woff2"),
+    url("./font/FMBolyarSansPro-700.ttf") format("ttf"),
+    url("./font/FMBolyarSansPro-700.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
 html {
     background: #FDB442;
 }
@@ -118,7 +127,7 @@ a:hover {
     justify-content: flex-start;
     align-items: center;
     text-decoration: none;
-    margin-right: 40px;
+    margin-right: 30px;
 }
 
 .sosial-item span {
@@ -193,8 +202,9 @@ a:hover {
 
 .after-title {
     font-size: 22px;
-    font-family: 'FMBolyar Sans Pro 400';
-    font-weight: 400;
+    font-family: "FMBolyar Sans Pro 700";
+    font-weight: 700;
+    line-height: 149%;
     text-transform: uppercase;
 }
 

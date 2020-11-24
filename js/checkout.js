@@ -34,6 +34,8 @@ $(document).ready(function () {
     var totalBlue = document.querySelector('.card__total--blue');
     var totalGold = document.querySelector('.card__total--gold');
 
+    var cards = document.querySelectorAll('.card__radio');
+
     buttonRed.addEventListener('click', function() {
       if (totalRed.classList.contains('hidden')) {
         totalRed.classList.remove('hidden');
@@ -43,6 +45,12 @@ $(document).ready(function () {
         card.classList.remove('card--gold');
         card.classList.remove('card--blue');
         card.classList.add('card--red');
+
+        for (var i = 0; i < 3; i++) {
+          cards[i].classList.add('js-red');
+          cards[i].classList.remove('js-blue');
+          cards[i].classList.remove('js-gold');
+        }
       }
     });
 
@@ -55,6 +63,12 @@ $(document).ready(function () {
         card.classList.remove('card--gold');
         card.classList.remove('card--red');
         card.classList.add('card--blue');
+
+        for (var i = 0; i < 3; i++) {
+          cards[i].classList.add('js-blue');
+          cards[i].classList.remove('js-red');
+          cards[i].classList.remove('js-gold');
+        }
       }
     });
 
@@ -67,14 +81,22 @@ $(document).ready(function () {
         card.classList.remove('card--red');
         card.classList.remove('card--blue');
         card.classList.add('card--gold');
+
+        for (var i = 0; i < 3; i++) {
+          cards[i].classList.add('js-gold');
+          cards[i].classList.remove('js-red');
+          cards[i].classList.remove('js-blue');
+        }
       }
     });
 
 
   })();
 
+  var popup = document.querySelector(".js-popup")
+
   var selector = document.querySelector(".js-phone");
-  var im = new Inputmask("+7 (999) 999-9999");
+  var im = new Inputmask("+7 (999) 999--9999");
   im.mask(selector);
 
   pickmeup.defaults.locales['ru'] = {
@@ -97,11 +119,13 @@ $(document).ready(function () {
 	});
 
 	// // Переопределение метода валидации почты
-	// $.validator.methods.email = function (value, elem) {
-	// 	return this.optional(elem) || (/\w+@[a-zA-Z0-9-]+?\.[a-zA-Z]{2,6}$/).test(value);
-	// };
+	$.validator.methods.email = function (value, elem) {
+	 	return this.optional(elem) || (/\w+@[a-zA-Z0-9-]+?\.[a-zA-Z]{2,6}$/).test(value);
+	 };
 
-  $(".js-form").validate({
+  var form = document.querySelector('.js-form')
+
+  $(form).validate({
     rules: {
       name: "required",
       phone: {
@@ -110,7 +134,7 @@ $(document).ready(function () {
       },
       mail: {
         required: true,
-        mail: true,
+        email: true,
       },
       address: "required",
       date: "required",
@@ -123,7 +147,7 @@ $(document).ready(function () {
       },
       mail: {
         required: "Обязательное поле",
-        mail: "Некорректный email",
+        email: "Некорректный email",
       },
       address: "Обязательное поле",
       date: "Обязательное поле",
@@ -145,8 +169,26 @@ $(document).ready(function () {
         $curWrap.addClass(validClass)
       }
     },
-    submitHandler: function(form) {
-      form.submit();
-    }
   });
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if ($(this).valid()) {
+      var data = new FormData(this)
+      console.log(data)
+
+      $.ajax({
+          type: 'post',
+          url: '#',
+          data: data,
+          success: function(response){
+            // показать попап
+            console.log("success")
+          },
+          error: function() {
+            console.log("error")
+          }
+      });
+    }
+  })
 });

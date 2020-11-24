@@ -4,15 +4,32 @@
 	    <meta charset="utf-8">
 	    <title>Абонемент</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
+	    <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
 	    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-      <link rel="stylesheet" href="./pickmeup.css" type="text/css">
+      	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+      	<link rel="stylesheet" href="./pickmeup.css" type="text/css">
 	    <link href="./checkout.css" rel="stylesheet">
 
 	</head>
 	<body>
-		<form method="" action="" name="information" class="js-form">
+		<header class="header">
+            <div class="header-left">
+                <a href="https://www.instagram.com/spbthai_massage_spa" class="sosial-item social-inst">
+                    <img src="./img/001-icon.svg">
+                    <span>Instagram</span>
+                </a>
+                <a href="https://vk.com/spbthai_ru" class="sosial-item">
+                    <img src="./img/002-icon.svg">
+                    <span>Вконтакте</span>
+                </a>
+            </div>
+            <a href="./index.html" class="logo">
+                <img src="img/logo.svg">
+            </a>
+    	</header>
+
+
+		<form action="#" method="POST" name="information" class="js-form">
 			<section class="info">
 				<div class="info__wrap">
 					<fieldset class="info__personal">
@@ -148,7 +165,7 @@
 			</section>
 		</form>
 
-    <section class="popup hidden">
+    <section class="popup hidden js-popup">
       <div class="popup__content">
       <h2>спасибо за ваш заказ.</h2>
       <p>В течение 10 минут мы позвоним вам, чтобы согласовать время подписания договора.</p>

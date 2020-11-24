@@ -1,9 +1,9 @@
 @font-face {
   font-family: "FM Bolyar Sans Pro";
-  src: url("./font/FMBolyarSansPro-400.woff2") format("woff2"),
-
-    url("./font/FMBolyarSansPro-400.woff") format("woff");
-  font-weight: 400;
+  src: url("./font/FMBolyarSansPro-700.woff2") format("woff2"),
+    url("./font/FMBolyarSansPro-700.ttf") format("ttf"),
+    url("./font/FMBolyarSansPro-700.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -32,7 +32,7 @@ legend {
 
 h2 {
   margin: 0;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 button {
@@ -43,6 +43,10 @@ button {
   background-color: transparent;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 /*общие стили страниы с формой*/
 form {
@@ -66,9 +70,52 @@ form {
 }
 
 
+/* header  */
+
+.header {
+  display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 7px 0 11px 36px;
+    height: 54px;
+    position: fixed;
+    width: -webkit-fill-available;
+    z-index: 1;
+}
+
+.header-left {
+  font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgb(99, 78, 62);
+}
+
+.header-left a {
+  display: inline-block;
+}
+
+.social-inst {
+  margin-right: 37px;
+}
+
+.header-left img {
+  vertical-align: sub;
+}
+
+.header-left span {
+  display: inline-block;
+  padding-left: 13px;
+}
+
+.logo {
+      padding-right: 48%;
+    margin-left: auto;
+}
+
 /*блок информации*/
 .info {
-  width: 56%;
+  width: 50%;
+  padding-top: 72px;
 }
 
 .info__wrap {
@@ -159,6 +206,8 @@ label.error {
 
   transition: all 0.2s;
   touch-action: manipulation;
+
+  pointer-events: none;
 }
 
 .info__item:focus {
@@ -357,7 +406,8 @@ label.error {
 
   position: fixed;
   right: 0;
-  top: 0;
+  top: 72px;
+  overflow-y: auto;
 }
 
 .container {
@@ -366,7 +416,7 @@ label.error {
 
   max-width: 675px;
 
-  padding: 46px 50px 0;
+  padding: 46px 50px 20px;
   margin: 0 auto;
 }
 
@@ -468,16 +518,19 @@ label.error {
 .card__button--gold {
   background-image: url(./img/DT-mini-gold-card.png);
   background-repeat: no-repeat;
+  background-size: 52px 50px;
 }
 
 .card__button--red {
   background-image: url(./img/DT-mini-red-card.png);
   background-repeat: no-repeat;
+  background-size: 52px 50px;
 }
 
 .card__button--blue {
   background-image: url(./img/DT-mini-blue-card.png);
   background-repeat: no-repeat;
+  background-size: 52px 50px;
 }
 
 .card__total {
@@ -508,7 +561,7 @@ label.error {
 
 .card__image {
   width: 100%;
-  height: 80vh;
+  height: 42vh;
   max-height: 450px;
   background-repeat: no-repeat;
   background-position: center;
@@ -654,6 +707,30 @@ label.error {
     margin-bottom: 32px;
   }
 
+  .header {
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    padding: 0;
+    height: 50px;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), transparent);
+  }
+
+  .header-left {
+    display: none;
+  }
+
+  .logo {
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .logo img { 
+    width: 113px;
+    height: 47.71px;
+  }
+
   .card__btn {
     display: none;
   }
@@ -663,6 +740,8 @@ label.error {
 
     width: 100%;
     height: auto;
+
+    top: 50px;
 
     order: -1;
   }
@@ -754,12 +833,13 @@ label.error {
 
   .info {
     width: 100%;
+    padding-top: 36px;
   }
 
   .info__wrap {
     width: 280px;
     padding: 36px 20px 0;
-    margin: 0 auto;
+    margin: auto;
   }
 
   .info__buttons {
@@ -798,6 +878,7 @@ label.error {
       border-radius: 50px;
       box-shadow: 0 0 0 2px rgba(255, 107, 0, 1);
       background-color: rgba(255, 255, 255, 1);
+      opacity: 1;
   }
 
   .info__place--spa:hover,
@@ -834,6 +915,10 @@ label.error {
     border-radius: 0;
   }
 
+  .info__input-wrap--date {
+    margin-bottom: 0;
+  }
+
 
   .info__btn {
     display: block;
@@ -842,7 +927,7 @@ label.error {
     width: 280px;
     height: 58px;
 
-    margin: 43px auto;
+    margin: 34px auto;
     padding: 20px 24px;
 
     text-align: left;
@@ -871,9 +956,7 @@ label.error {
     background-image: url(./img/arrow.png);
     background-repeat: no-repeat;
   }
-
 }
-
 
 .hidden {
   display: none;
@@ -883,4 +966,20 @@ label.error {
   .info__wrap {
     margin: 0 auto;
   }
+
+  .header-left {
+    margin-left: auto;
+  }
+}
+
+.js-red::before {
+  border-color: rgba(255, 232, 226, 1);
+}
+
+.js-blue::before {
+  border-color: rgba(225, 233, 238, 1);
+}
+
+.js-gold::before {
+  border-color: rgba(255, 241, 210, 1);
 }
