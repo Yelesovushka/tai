@@ -1325,12 +1325,12 @@ a:hover {
     }
 
     .footer .container {
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
     }
     
     .footer-left {
-        width: 40%;
+        width: 100%;
         margin-bottom: 0;
     }
     
@@ -1350,11 +1350,13 @@ a:hover {
     }
     
     .footer-center {
-        width: 40%;
+        width: 100%;
+        align-items: flex-end;
     }
 
     .footer-right {
         padding-top: 10px;
+        padding-bottom: 100px;
     }
     
     .home-nine-item {
@@ -1404,6 +1406,30 @@ a:hover {
         background-size: cover;
         background-repeat: no-repeat;
     }
+
+        .home-one .button {
+        display: flex;
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        width: calc(100% - 40px);
+        z-index: 10;
+    }
+
+        .button {
+        display: none;
+    }
+
+
+    .home-seven {
+        padding-top: 50px;
+        padding-bottom: 0;
+    }
+
+
+    .home-four .container {
+        padding-bottom: 0;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -1437,10 +1463,6 @@ a:hover {
 
     .footer .header-left {
         width: auto;
-    }
-
-    .home-four .container {
-        padding-bottom: 0;
     }
     
     .home-four-item span {
@@ -1479,8 +1501,6 @@ a:hover {
         font-family: "FMBolyar Sans Pro 700", "Arial", sans-serif;
         font-size: 25px;
     }
-
-    
     
 }
 
@@ -1502,9 +1522,6 @@ a:hover {
         font-size: 14px;
     }
 
-    .button {
-        display: none;
-    }
 
     .home-one .container {
         padding: 20px;
@@ -1532,15 +1549,6 @@ a:hover {
         margin-bottom: 30px;
     }
 
-    .home-one .button {
-        display: flex;
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        width: calc(100% - 40px);
-        z-index: 10;
-    }
-
     .home-five {
         padding-top: 75px;
         padding-bottom: 56px;
@@ -1556,7 +1564,6 @@ a:hover {
         font-size: 20px;
     }
 
-    
     .home-five-item-m:nth-child(3) {
         order: 5;
     } 
@@ -1593,8 +1600,6 @@ a:hover {
         line-height: 20px;
         font-weight: 500;
     }
-
-
 
     .home-three .container {
 
@@ -1659,13 +1664,6 @@ a:hover {
         flex-wrap: wrap;
         padding-bottom: 100px;
         z-index: 1;
-    }
-
-
-
-    .home-seven {
-        padding-top: 50px;
-        padding-bottom: 0;
     }
 
     .home-seven .container .h2 {
@@ -1754,8 +1752,6 @@ a:hover {
     .home-nine-item {
         text-align: left;
     }
-
-    .footer { }
 
     .footer .container {
         padding: 0 20px

@@ -95,7 +95,7 @@ form {
     padding: 7px 0 11px 36px;
     height: 54px;
     position: fixed;
-    width: -webkit-fill-available;
+    width: 100%;
     z-index: 3;
     background-color: white;
 }
@@ -261,6 +261,12 @@ label.error {
 ::-webkit-input-placeholder {
   opacity: 0;
   -webkit-transition: inherit;
+  transition: inherit;
+}
+
+::-moz-placeholder {
+  opacity: 0;
+  -moz-transition: inherit;
   transition: inherit;
 }
 

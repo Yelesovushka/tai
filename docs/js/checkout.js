@@ -196,7 +196,6 @@ $(document).ready(function () {
             },
             error: function() {
               console.log('error')
-              popup.classList.remove('hidden')
             },
             complete: function () {
               formBtn.removeAttribute('disabled');
