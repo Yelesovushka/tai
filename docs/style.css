@@ -77,6 +77,10 @@ html {
     background: #FDB442;
 }
 
+.hidden {
+    display: none;
+}
+
 .body {
     font-family: 'Work Sans', "Arial", sans-serif;
     margin: 0;
@@ -392,7 +396,7 @@ a:hover {
 
 .home-three {
     height: 670px;
-    
+    background: url(img/007-img.jpg) center center; background-size: cover;
 }
 
 .home-three .container {
@@ -400,6 +404,7 @@ a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
 }
 
 .home-three .h2 {
@@ -948,7 +953,12 @@ a:hover {
     .home-two .container, .home-four .container, .home-six .container, .home-seven .container {
         padding: 0 20px;
     }
-    
+
+    .home-two .container, 
+    .home-four .container {
+        padding-bottom: 100px;
+    }
+
     .h1, .h2 {
         font-size: 28px;
     }
@@ -1017,6 +1027,16 @@ a:hover {
     
     .home-five-item-m {
         width: 50%;
+        align-items: center;
+    }
+
+    .home-five-item-m span {
+        text-align: center;
+        margin-top: 15px; 
+    }
+
+    .home-five-item .h2 {
+        text-align: left;
     }
     
     .home-seven-block {
@@ -1050,6 +1070,11 @@ a:hover {
         margin-top: 30px;
         margin-right: 30px;
         width: 45%;
+        text-align: center;
+    }
+
+    .home-nine-item:last-child {
+        flex-grow: 1;
     }
     
     .footer .container {
@@ -1062,6 +1087,9 @@ a:hover {
     
     .footer-center {
         width: 50%;
+        padding: 0;
+        align-items: flex-end;
+        text-align: right;
     }
     
     .footer-right {
@@ -1137,7 +1165,6 @@ a:hover {
     
     .h1, .h2 {
         font-size: 20px;
-        text-align: left !important;
         padding-right: 20px;
         margin: 0 0 10px 0;
         box-sizing: border-box;
@@ -1181,6 +1208,7 @@ a:hover {
     
     .home-four .h2 {
         background: url(img/bottle.png) bottom right no-repeat;
+        width: 100%;
     }
     
     .home-four .h2 br {
@@ -1216,14 +1244,22 @@ a:hover {
     .logo-brdr {
         display: none;
     }
-    
+
+    .home-five {
+        padding-top: 20px;
+    }
+
     .home-six-item {
-        width:100%;
-        margin: 10px 0;
+        width: auto;
+        margin: 10px 7px;
     }
     
     .home-six {
         padding-bottom: 50px;
+    }
+
+    .home-six .h2-text {
+        text-align: center;
     }
     
     .home-seven-item {
@@ -1262,6 +1298,7 @@ a:hover {
     
     .home-eight-left .h2 {
         margin: 0;
+        text-align: center;
     }
     
     .home-nine .container {
@@ -1275,10 +1312,20 @@ a:hover {
         margin-right: 0;
         width: 100%;
     }
+
+    .footer {
+        padding-top: 36px;
+        padding-bottom: 10px;
+    }
+
+    .footer .container {
+        flex-direction: row;
+        align-items: center;
+    }
     
     .footer-left {
-        width: 100%;
-        margin-bottom: 30px;
+        width: 40%;
+        margin-bottom: 0;
     }
     
     .footer .header-left {
@@ -1297,7 +1344,11 @@ a:hover {
     }
     
     .footer-center {
-        width: 100%;
+        width: 40%;
+    }
+
+    .footer-right {
+        padding-top: 10px;
     }
     
     .home-nine-item {
@@ -1339,17 +1390,61 @@ a:hover {
     .footer-left span br, .footer-center span br {
         display: none;
     }
+
+    .footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .footer-left, 
+    .footer-center {
+        text-align: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .footer .header-left {
+        width: auto;
+    }
+
+    .home-four .container {
+        padding-bottom: 0;
+    }
     
     .home-four-item span {
         font-size: 14px;
+    }
+
+    .home-six-block {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    width: calc(100% + 40px);
+    box-sizing: border-box;
+    padding: 0 20px;
+    }
+
+    .home-six-item {
+    box-sizing: border-box;
+    width: 288px;
+    flex-shrink: 0;
+    }
+
+    .home-six-item:first-child {
+        margin-left: 0;
     }
     
     
 }
 
 @media screen and (max-width: 320px) {
-    .home-one-block {
-        display: none;
+    .logo {
+        padding: 0;
+    }
+
+    .logo img {
+        width: 113px;
+        height: 47px;
     }
     
     .h1, .h2 {
@@ -1359,4 +1454,302 @@ a:hover {
     .after-title {
         font-size: 14px;
     }
+
+    .button {
+        display: none;
+    }
+
+    .home-one .container {
+        padding: 20px;
+    }
+
+    .home-one-hid {
+        display: inline-block;
+        font-family: "FMBolyar Sans Pro 700", "Arial", sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 149%;
+
+        text-transform: uppercase;
+
+        color: #110F0F;
+
+    }
+
+    .home-one-block, .home-one-block .home-one-item:last-child {
+        display: inline-block;
+    }
+
+    .home-one-item,
+    .home-one-block .home-one-item:first-child {
+        margin-bottom: 30px;
+    }
+
+    .home-one .button {
+        display: flex;
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        width: calc(100% - 40px);
+        z-index: 10;
+    }
+
+    .home-five {
+        padding-top: 75px;
+        padding-bottom: 56px;
+    }
+
+    .home-five .container {
+        padding: 0 20px;
+    }
+
+    .home-five-item .h2 {
+        font-family: "FMBolyar Sans Pro 700", "Arial", sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    .home-five-item-m {
+        align-items: flex-start;
+    }
+
+    .home-five-item-m:nth-child(3) {
+        order: 5;
+    } 
+
+    .home-five-item-m span:last-child {
+        text-align: left;
+        font-size: 14px;
+        margin-top: 0;
+    }
+
+    .home-two .container {
+        padding-top: 0;
+        padding-bottom: 35px;
+    }
+
+    .home-two .h2 {
+        font-family: "FMBolyar Sans Pro 700", "Arial", sans-serif;
+        font-size: 20px;
+        text-align: left;
+        padding-right: 10px;
+        margin-bottom: 8px;
+        font-weight: 700;
+    }
+
+    .home-two-block-bgr {
+        background: transparent;
+    }
+
+    .home-two-item span {
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 500;
+    }
+
+    .home-three {
+        position: relative;
+        background-color: #18402E;
+        background-image: url(./img/leaf-top.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-size: 222px 80px;
+        background-position: 0 0;
+    }
+
+    .home-three .container {
+        background-image: none;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .home-three .h2 {
+        font-family: "FMBolyar Sans Pro 500", "Arial", sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 129%;
+        padding-right: 62px;
+    }
+
+    .home-two-item-top span {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .home-three-item {
+        margin-top: 60px;
+    } 
+
+    .home-three-item:nth-child(2) {
+        margin-bottom: 60px;
+    }
+
+    .home-three-item .descriptions,
+     .home-three-text{
+        color: #A3B7B3;
+        font-size: 16px;
+        line-height: 149%;
+        margin-top: 20px;
+    }
+
+    .home-three .icon-hid {
+        width: 44px;
+        height: 44px;
+        background: rgba(255,255,255,0);
+        border-radius: 12px;
+        display: inline-block;
+        margin-right: 20px;
+     }
+
+    .home-three-hid {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
+        color: #fff;
+        padding-top: 12px;
+        vertical-align: top;
+    }
+
+    .home-three-bottom {
+        padding-bottom: 100px;
+        z-index: 1;
+    }
+
+    .home-three::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 320px;
+        height: 360.5px;
+        background-color: #18402E;
+        background-image: url(./img/leaf-bottom.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .home-seven {
+        padding-top: 50px;
+        padding-bottom: 0;
+    }
+
+    .home-seven .h2 {
+        font-family: "FMBolyar Sans Pro 700", "Arial", sans-serif;
+        font-size: 20px;
+        line-height: 129%;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .home-seven .h2-text {
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 25px;
+    }
+
+    .qant {
+        margin-top: 15px;
+    }
+
+    .h2-text-2 {
+        font-size: 16px;
+    }
+
+    .home-six {
+        padding-top: 0;
+    }
+
+    .home-six .h2 {
+        font-family: "FMBolyar Sans Pro 700", "Arial", sans-serif;
+        font-size: 20px;
+        line-height: 129%;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .home-six .h2-text {
+        font-size: 18px;
+        line-height: 150%;
+        text-align: left;
+    }
+
+    .home-six .home-six-item {
+        padding: 20px;
+        height: 140px;
+        margin: 0 10px;
+    }
+
+     .home-six .home-six-item .img { 
+        width: 80px;
+        height: 100px;
+        border-radius: 100px;
+     }
+
+     .home-six .home-six-item .text-box {
+        margin-left: 33px;
+        line-height: 18px;
+     }
+     .home-six-item:last-child {
+        order: -1;
+        margin-left: 0;
+     }
+
+     .home-four .container {
+        padding-top: 0;
+     }
+    
+    .home-four .h2,
+    .home-eight .h2 {
+        font-family: "FMBolyar Sans Pro 700", "Arial", sans-serif;
+        font-size: 20px;
+        line-height: 129%;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .home-four-block {
+        margin-bottom: 61px;
+    }
+
+    .home-nine-item {
+        text-align: left;
+    }
+
+    .footer { }
+
+    .footer .container {
+        padding: 0 20px
+    }
+
+    .footer-left {
+        text-align: left;
+    }
+
+    .footer-left img {
+        margin-right: auto;
+    }
+
+    .footer .header-left {
+        margin-right: auto;
+    }
+
+    .footer-text {
+        margin-bottom: 30px;
+    }
+
+    .footer-center span {
+        margin-top: 30px;
+        text-align: left
+    }
+    
+    .footer-right span {
+        margin-bottom: 100px;
+    }
+
 }

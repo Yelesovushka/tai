@@ -170,7 +170,7 @@ $(document).ready(function () {
             //},
             success: function(response){
            //   window.location.href = '/index.html?showPopup=true'
-           popup.classList.remove('hidden')
+              popup.classList.remove('hidden')
             },
             error: function() {
               console.log('error')
