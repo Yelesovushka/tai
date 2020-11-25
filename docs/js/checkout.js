@@ -34,6 +34,8 @@ $(document).ready(function () {
     var totalBlue = document.querySelector('.card__total--blue');
     var totalGold = document.querySelector('.card__total--gold');
 
+    var cards = document.querySelectorAll('.card__radio');
+
     buttonRed.addEventListener('click', function() {
       if (totalRed.classList.contains('hidden')) {
         totalRed.classList.remove('hidden');
@@ -43,6 +45,12 @@ $(document).ready(function () {
         card.classList.remove('card--gold');
         card.classList.remove('card--blue');
         card.classList.add('card--red');
+
+        for (var i = 0; i < 3; i++) {
+          cards[i].classList.add('js-red');
+          cards[i].classList.remove('js-blue');
+          cards[i].classList.remove('js-gold');
+        }
       }
     });
 
@@ -55,6 +63,12 @@ $(document).ready(function () {
         card.classList.remove('card--gold');
         card.classList.remove('card--red');
         card.classList.add('card--blue');
+
+         for (var i = 0; i < 3; i++) {
+          cards[i].classList.add('js-blue');
+          cards[i].classList.remove('js-red');
+          cards[i].classList.remove('js-gold');
+        }
       }
     });
 
@@ -67,6 +81,12 @@ $(document).ready(function () {
         card.classList.remove('card--red');
         card.classList.remove('card--blue');
         card.classList.add('card--gold');
+
+        for (var i = 0; i < 3; i++) {
+          cards[i].classList.add('js-gold');
+          cards[i].classList.remove('js-red');
+          cards[i].classList.remove('js-blue');
+        }
       }
     });
 
@@ -74,7 +94,7 @@ $(document).ready(function () {
   })();
 
   var selector = document.querySelector('.js-phone');
-  var im = new Inputmask('+7 (999) 999-9999');
+  var im = new Inputmask('+7 (999) 999--9999');
   im.mask(selector);
 
   pickmeup.defaults.locales['ru'] = {
@@ -156,7 +176,7 @@ $(document).ready(function () {
   
       if ($(this).valid()) {
         var formData = new FormData(form);
-        var popup = document.querySelector('.hidden');
+        var popup = document.querySelector('.js-popup');
   
         $.ajax({
             type: 'post',
@@ -165,19 +185,22 @@ $(document).ready(function () {
             contentType: false,
             cache: false,
             processData: false,
-            //beforeSend: function () {
-            // formBtn.setAttribute('disabled', true);
-            //},
+            beforeSend: function () {
+             formBtn.setAttribute('disabled', true);
+            },
             success: function(response){
-           //   window.location.href = '/index.html?showPopup=true'
               popup.classList.remove('hidden')
+              popup.querySelector('.js-popup-btn').addEventListener('click', function() {
+                window.location.href = './index.html'
+              })
             },
             error: function() {
               console.log('error')
+              popup.classList.remove('hidden')
             },
-            //complete: function () {
-              //formBtn.removeAttribute('disabled');
-            //}
+            complete: function () {
+              formBtn.removeAttribute('disabled');
+            }
         });
       }
     })

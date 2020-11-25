@@ -15,21 +15,21 @@
 		<header class="header">
             <div class="header-left">
                 <a href="https://www.instagram.com/spbthai_massage_spa" class="sosial-item social-inst">
-                    <img src="./img/001-icon.svg">
+                    <img src="./img/001-icon.svg" alt="Instagram">
                     <span>Instagram</span>
                 </a>
                 <a href="https://vk.com/spbthai_ru" class="sosial-item">
-                    <img src="./img/002-icon.svg">
+                    <img src="./img/002-icon.svg" alt="VK">
                     <span>Вконтакте</span>
                 </a>
             </div>
             <a href="./index.html" class="logo">
-                <img src="img/logo.svg">
+                <img src="img/logo.svg" alt="Логотип">
             </a>
     	</header>
 
 
-		<form action="#" method="POST" name="information" class="js-form">
+		<form action="./contacts.php" method="POST" name="information" class="js-form">
 			<section class="info">
 				<div class="info__wrap">
 					<fieldset class="info__personal">
@@ -44,7 +44,7 @@
 						</div>
 						<div class="info__input-wrap">
               <input class="info__input js-phone" type="tel" name="phone" id="phoneNumber" required="" placeholder="7 (999) 999-9999">
-							<label class="info__item" for="phone">
+							<label class="info__item" for="phoneNumber">
 								Мобильный телефон
 							</label>
 
@@ -76,7 +76,7 @@
 							<div class="info__metro">
                 <input class="info__radiobutton" type="radio" name="address-spa" id="mosk" value="Московская" checked="">
 								<label class="info__radio" for="mosk">
-                  <img src="./img/map-Mosk.png">
+                  <img src="./img/map-Mosk.png" alt="Московская">
                   <span class="info__station">Московская</span>
                   <span class="info__address">Московский пр. 183-185Б, ЖК “Граф Орлов”</span>
                 </label>
@@ -85,7 +85,7 @@
 							<div class="info__metro">
                 <input class="info__radiobutton" type="radio" name="address-spa" id="frun" value="Фрунзенская">
 								<label class="info__radio" for="frun">
-                  <img src="./img/map-Frun.png">
+                  <img src="./img/map-Frun.png" alt="Фрунзенская">
                   <span class="info__station">Фрунзенская</span>
                   <span class="info__address">пл. Чернышевского, 6</span>
                 </label>
@@ -94,7 +94,7 @@
 							<div class="info__metro">
                 <input class="info__radiobutton" type="radio" name="address-spa" id="park" value="Парк Победы">
 								<label class="info__radio" for="park">
-                  <img src="./img/map-Park.png">
+                  <img src="./img/map-Park.png" alt="Парк Победы">
                   <span class="info__station">Парк Победы</span>
                   <span class="info__address">Смоленская ул., 14</span>
                 </label>
@@ -158,7 +158,7 @@
   					<span>Итого: </span><span class="card__price"> 100 000 руб</span>
   				</div>
 
-  				<button class="card__btn" type="submit">Заказать</button>
+  				<button class="card__btn js-form-btn" type="submit">Заказать</button>
 
         </div>
 
@@ -169,7 +169,7 @@
       <div class="popup__content">
       <h2>спасибо за ваш заказ.</h2>
       <p>В течение 10 минут мы позвоним вам, чтобы согласовать время подписания договора.</p>
-      <button type="button">Ок</button>
+      <button type="button" class="js-popup-btn">Ок</button>
     </div>
     </section>
 
