@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 window.$ = window.jQuery;
 
@@ -73,8 +73,8 @@ $(document).ready(function () {
 
   })();
 
-  var selector = document.querySelector(".js-phone");
-  var im = new Inputmask("+7 (999) 999-9999");
+  var selector = document.querySelector('.js-phone');
+  var im = new Inputmask('+7 (999) 999-9999');
   im.mask(selector);
 
   pickmeup.defaults.locales['ru'] = {
@@ -91,62 +91,95 @@ $(document).ready(function () {
     locale: 'ru'
   });
 
-  // Дополнительный метод для валидации количества цифр в телефоне
-	$.validator.addMethod('minlengthphone', function (value, elem, param) {
-		return this.optional(elem) || value.replace(/\D+/g, '').length === param;
-	});
+  (function() {
+    var form = document.querySelector('.js-form');
+    var formBtn = form.querySelector('.js-form-btn');
+    
+      // Дополнительный метод для валидации количества цифр в телефоне
+    $.validator.addMethod('minlengthphone', function (value, elem, param) {
+      return this.optional(elem) || value.replace(/\D+/g, '').length === param;
+    });
 
-	// // Переопределение метода валидации почты
-	// $.validator.methods.email = function (value, elem) {
-	// 	return this.optional(elem) || (/\w+@[a-zA-Z0-9-]+?\.[a-zA-Z]{2,6}$/).test(value);
-	// };
+    // Переопределение метода валидации почты
+    $.validator.methods.email = function (value, elem) {
+      return this.optional(elem) || (/\w+@[a-zA-Z0-9-]+?\.[a-zA-Z]{2,6}$/).test(value);
+    };
 
-  $(".js-form").validate({
-    rules: {
-      name: "required",
-      phone: {
-        required: true,
-        minlengthphone: 11,
+    $(form).validate({
+      rules: {
+        name: 'required',
+        phone: {
+          required: true,
+          minlengthphone: 11,
+        },
+        mail: {
+          required: true,
+          email: true,
+        },
+        address: 'required',
+        date: 'required',
       },
-      mail: {
-        required: true,
-        mail: true,
+      messages: {
+        name: 'Обязательное поле',
+        phone: {
+          required: 'Обязательное поле',
+          minlengthphone: 'Некорректный номер'
+        },
+        mail: {
+          required: 'Обязательное поле',
+          email: 'Некорректный email',
+        },
+        address: 'Обязательное поле',
+        date: 'Обязательное поле',
       },
-      address: "required",
-      date: "required",
-    },
-    messages: {
-      name: "Обязательное поле",
-      phone: {
-        required: "Обязательное поле",
-        minlengthphone: "Некорректный номер"
+      errorPlacement: function(error, element) {
+        error.insertBefore(element);
       },
-      mail: {
-        required: "Обязательное поле",
-        mail: "Некорректный email",
+      errorClass: 'error',
+      validClass: 'valid',
+      highlight: function (element, errorClass, validClass) {
+        $(element).closest('.info__input-wrap')
+          .removeClass(validClass)
+          .addClass(errorClass);
       },
-      address: "Обязательное поле",
-      date: "Обязательное поле",
-    },
-    errorPlacement: function(error, element) {
-      error.insertBefore(element);
-    },
-    errorClass: "error",
-    validClass: "valid",
-    highlight: function (element, errorClass, validClass) {
-      $(element).closest('.info__input-wrap')
-        .removeClass(validClass)
-        .addClass(errorClass);
-    },
-    unhighlight: function (element, errorClass, validClass) {
-      var $curWrap = $(element).closest('.info__input-wrap');
-      $curWrap.removeClass(errorClass);
-      if ($.trim($(element).val()) !== '') {
-        $curWrap.addClass(validClass)
+      unhighlight: function (element, errorClass, validClass) {
+        var $curWrap = $(element).closest('.info__input-wrap');
+        $curWrap.removeClass(errorClass);
+        if ($.trim($(element).val()) !== '') {
+          $curWrap.addClass(validClass)
+        }
+      },
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+  
+      if ($(this).valid()) {
+        var formData = new FormData(form);
+  
+        $.ajax({
+            type: 'post',
+            url: '',
+            data: formData,
+            contentType: false,
+            cache: false,
+            processData: false,
+            beforeSend: function () {
+              formBtn.setAttribute('disabled', true);
+            },
+            success: function(response){
+              window.location.href = '/index.html?showPopup=true'
+            },
+            error: function() {
+              console.log('error')
+            },
+            complete: function () {
+              formBtn.removeAttribute('disabled');
+            }
+        });
       }
-    },
-    submitHandler: function(form) {
-      form.submit();
-    }
-  });
+    })
+  
+  })();
+
 });
