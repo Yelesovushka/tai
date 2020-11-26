@@ -94,7 +94,7 @@ $(document).ready(function () {
   })();
 
   var selector = document.querySelector('.js-phone');
-  var im = new Inputmask('+7 (999) 999--9999');
+  var im = new Inputmask('+7 (999) 999-99-99');
   im.mask(selector);
 
   pickmeup.defaults.locales['ru'] = {
@@ -108,7 +108,8 @@ $(document).ready(function () {
   pickmeup('.js-date', {
     format: 'd-B-Y',
     min: new Date(),
-    locale: 'ru'
+    locale: 'ru',
+    hide_on_select: true
   });
 
   (function() {
@@ -180,7 +181,7 @@ $(document).ready(function () {
   
         $.ajax({
             type: 'post',
-            url: '',
+            url: '../contacts.php',
             data: formData,
             contentType: false,
             cache: false,
