@@ -181,7 +181,7 @@ $(document).ready(function () {
   
         $.ajax({
             type: 'post',
-            url: '../contacts.php',
+            url: form.getAttribute('action'),
             data: formData,
             contentType: false,
             cache: false,
