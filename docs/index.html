@@ -1,374 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Абонемент</title>
-    <meta name="description" content="NEW" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link href="style.css" rel="stylesheet">
-    
-    <script src="js/jquery.min.js"></script>
-</head>
+	<head>
+	    <meta charset="utf-8">
+	    <title>Купить абонемент</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
+      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+      <link rel="stylesheet" href="./pickmeup.css" type="text/css">
+	    <link href="./checkout.css" rel="stylesheet">
 
-<body class="body">
-    
-    <header class="header">
-        
+	</head>
+	<body>
+		<header class="header">
             <div class="header-left">
-                <a href="https://www.instagram.com/spbthai_massage_spa" class="sosial-item">
-                    <img src="img/001-icon.svg">
+                <a href="https://www.instagram.com/spbthai_massage_spa" class="sosial-item social-inst">
+                    <img src="./img/001-icon.svg" alt="Instagram">
                     <span>Instagram</span>
                 </a>
                 <a href="https://vk.com/spbthai_ru" class="sosial-item">
-                    <img src="img/002-icon.svg">
+                    <img src="./img/002-icon.svg" alt="VK">
                     <span>Вконтакте</span>
                 </a>
             </div>
-            <a href="/" class="logo">
-                <img src="img/logo.svg">
+            <a href="./index.html" class="logo">
+                <img src="img/logo.svg" alt="Логотип">
             </a>
+    	</header>
 
-    </header>
 
-    <section class="home-one">
-        <div class="container" style="background: url(img/001-img.jpg) center center; background-size: cover;">
-            <style>
-                @media screen and (max-width: 680px) {
-                    .home-one .container {
-                        background: url(img/001-img_.jpg) center center !important; 
-                        background-size: cover !important;
-                    }
-                }
-                
-                @media screen and (max-width: 320px) {
-                    .home-one .container {
-                        background: url(img/001-img_.jpg) top -40px center !important;
-                        background-size: cover !important;
-                    }
-                }
-            </style>
-            <div class="home-one-top">
-                <h1 class="h1">ПOСЕЩАЙТЕ ВСЕ <br>ПРОЦЕДУРЫ БЕЗ <br>ОГРАНИЧЕНИЙ</h1>
-                <span class="after-title">по одному абонементу</span><span class="home-one-hid hidden">с spbthai</span>
-            </div>
-            <div class="home-one-bottom">
-                <div class="home-one-block">
-                    <div class="home-one-item">
-                        <span>Менее 1000 рублей</span>
-                        <span>в пересчете на 1 час массажа </span>
-                    </div>
-                    <div class="home-one-item">
-                        <span>Срок действия абонемента</span>
-                        <span>от 2,5 до 6 месяцев</span>
-                    </div>
-                </div>
-                <a href="./checkout.html" class="button">
-                    <span>Купить абонемент</span>
-                    <img src="img/Shape.svg">
-                </a>
-                <span class="after-text-one">Предложение ограничено!</span>
-                <span class="after-text-two">Осталось: <strong>10 абонементов</strong></span>
-            </div>
-        </div>
-    </section>
+		<form action="./contacts.php" method="POST" name="information" class="js-form">
+			<section class="info">
+				<div class="info__wrap">
+					<fieldset class="info__personal">
+						<legend class="info__text text">Информация для связи</legend>
+						<div class="info__input-wrap">
+              <input class="info__input" type="text" name="name" id="name" required="" placeholder="Ваше имя">
+							<label class="info__item" for="name">
+								Ваше имя
+							</label>
 
-    <section class="home-five">
-        <img src="img/brdr.svg" class="logo-brdr">
-        <div class="container">   
-            <div class="home-five-item">
-                <h2 class="h2">SPBTHAI — <br><strong>10 лет</strong> <br class="br-moile">в <br>индустрии <br>тайского <br><br class="br-moile">массажа</h2>
-            </div>
-            <div class="home-five-item home-five-item-m">
-                <span class="number">3</span>
-                <span>спа-центра <br>SPBTHAI в <br>Московском <br>районе</span>
-            </div>
-            <div class="home-five-item home-five-item-m">
-                <span class="number">30+</span>
-                <span>спа-программ <br>для женщин и <br>мужчин</span>
-            </div>
-            <div class="home-five-item home-five-item-m">
-                <span class="number">4500</span>
-                <span>благодарных <br>клиентов</span>
-            </div>
-            <div class="home-five-item home-five-item-m">
-                <span class="number">15</span>
-                <span>видов массажа  </span>
-            </div>
-        </div>
-    </section>
+							<span class="info__input-text">Как к вам можно обращаться?</span>
+						</div>
+						<div class="info__input-wrap">
+              <input class="info__input js-phone" type="tel" name="phone" id="phoneNumber" required="" placeholder="7 (999) 999-99-99">
+							<label class="info__item" for="phoneNumber">
+								Мобильный телефон
+							</label>
 
-    <section class="home-two">
+							<span class="info__input-text">Мы вам позвоним, чтобы согласовать время</span>
+						</div>
+						<div class="info__input-wrap">
+              <input class="info__input" type="email" name="mail" id="mail" required="" placeholder="abcd@efg.hi">
+							<label class="info__item" for="mail">
+								Email
+							</label>
+
+							<span class="info__input-text">На ваш почтовый ящик будет отправлена информация о нашей встрече</span>
+						</div>
+					</fieldset>
+
+					<fieldset class="info__place-time">
+						<legend class="info__text text">Где вам удобно подписать договор?</legend>
+						<div class="info__buttons">
+							<div class="info__place info__place--spa">
+								<input type="radio" name="place" id="spa"  value="Spa" checked="">
+								<label class="info__button" for="spa">В спа-центре</label>
+							</div>
+							<div class="info__place info__place--home">
+								<input type="radio" name="place" id="home" value="Home">
+								<label class="info__button" for="home">По моему адресу с доставкой</label>
+							</div>
+						</div>
+						<div class="info__address-spa">
+							<div class="info__metro">
+                <input class="info__radiobutton" type="radio" name="address-spa" id="mosk" value="Московская" checked="">
+								<label class="info__radio" for="mosk">
+                  <img src="./img/map-Mosk.png" alt="Московская">
+                  <span class="info__station">Московская</span>
+                  <span class="info__address">Московский пр. 183-185Б, ЖК “Граф Орлов”</span>
+                </label>
+
+							</div>
+							<div class="info__metro">
+                <input class="info__radiobutton" type="radio" name="address-spa" id="frun" value="Фрунзенская">
+								<label class="info__radio" for="frun">
+                  <img src="./img/map-Frun.png" alt="Фрунзенская">
+                  <span class="info__station">Фрунзенская</span>
+                  <span class="info__address">пл. Чернышевского, 6</span>
+                </label>
+
+							</div>
+							<div class="info__metro">
+                <input class="info__radiobutton" type="radio" name="address-spa" id="park" value="Парк Победы">
+								<label class="info__radio" for="park">
+                  <img src="./img/map-Park.png" alt="Парк Победы">
+                  <span class="info__station">Парк Победы</span>
+                  <span class="info__address">Смоленская ул., 14</span>
+                </label>
+
+							</div>
+						</div>
+						<div class="info__address-home info__input-wrap hidden">
+              <input class="info__input" type="text" name="address" id="address" required="" placeholder="Адрес доставки">
+							<label class="info__item" for="address">
+								Адрес доставки
+							</label>
+
+							<span class="info__input-text">Доставка в пределах КАД бесплатна</span>
+						</div>
+						<div class="info__input-wrap info__input-wrap--date">
+              <input class="info__input js-date" type="text" name="date" id="date" required="" placeholder="Выберите дату">
+							<label class="info__item" for="date">
+								Дата подписания договора
+							</label>
+
+							<span class="info__input-text">Когда вам будет удобно подписать договор?</span>
+						</div>
+					</fieldset>
+				</div>
+        <button class="info__btn" type="submit">Заказать</button>
+			</section>
+
+			<section class="card card--gold">
         <div class="container">
-            <h2 class="h2">Заплатите один раз и поcещайте<br>любимые программы, сколько хотите</h2>
-            <div class="home-two-block">
-                <div class="home-two-item" style="background: url(img/002-img.jpg) center center; background-size: cover;">
-                    <div class="home-two-block-bgr">
-                        <span>Массаж травяными <br>мешочками</span>
-                    </div>
-                </div>
-                <div class="home-two-item" style="background: url(img/003-img.jpg) center center; background-size: cover;">
-                    <div class="home-two-block-bgr">
-                        <span>Кедровая<br>бочка</span>
-                    </div>
-                </div>
-                <div class="home-two-item" style="background: url(img/004-img.jpg) center center; background-size: cover;">
-                    <div class="home-two-block-bgr">
-                        <span>Тайские массажи</span>
-                    </div>
-                </div>
-                <div class="home-two-item" style="background: url(img/005-img.jpg) center center; background-size: cover;">
-                    <div class="home-two-block-bgr">
-                        <span>Спа для женщин</span>
-                    </div>
-                </div>
-                <div class="home-two-item" style="background: url(img/006-img.jpg) center center; background-size: cover;">
-                    <div class="home-two-block-bgr">
-                        <span>Спа для мужчин</span>
-                    </div>
-                </div>
-            </div>
-            <a href="./checkout.html" class="button">
-                <span>Купить абонемент</span>
-                <img src="img/Shape.svg">
-            </a>
+  				<h2 class="card__head text">Ваш заказ</h2>
+  				<div class="card__buttons">
+  					<div class="card__button card__button--red">
+  						<input class="card__radiobutton card__button--red" type="radio" name="card" id="red" value="red">
+  						<label class="card__radio card__radio--red" for="red"><span>Абонемент на 2,5 месяца</span> <span>50 000 руб</span></label>
+  					</div>
+  					<div class="card__button card__button--blue">
+  						<input class="card__radiobutton card__button--blue" type="radio" name="card" id="blue" value="blue">
+              <label class="card__radio card__radio--blue" for="blue"><span>Абонемент на 4 месяца</span><span>75 000 руб</span></label>
+  					</div>
+  					<div class="card__button card__button--gold">
+  						<input class="card__radiobutton card__button--gold" type="radio" name="card" id="gold" value="gold" checked="">
+  						<label class="card__radio card__radio--gold" for="gold"><span>Абонемент на 6 месяцев</span> <span>100 000 руб</span></label>
+  					</div>
+  				</div>
+
+  				<div class="card__total card__total--red hidden">
+            <div class="card__image card__image--red"></div>
+  					<span class="card__total-text">Абонемент на 2,5 месяца</span>
+  					<span>Итого: </span><span class="card__price">50 000 руб</span>
+  				</div>
+
+  				<div class="card__total card__total--blue hidden">
+            <div class="card__image card__image--blue"></div>
+  					<span class="card__total-text">Абонемент на 4 месяца</span>
+  					<span>Итого: </span><span class="card__price">75 000 руб</span>
+  				</div>
+
+  				<div class="card__total card__total--gold">
+            <div class="card__image card__image--gold"></div>
+  					<span class="card__total-text">Абонемент на 6 месяцев</span>
+  					<span>Итого: </span><span class="card__price"> 100 000 руб</span>
+  				</div>
+
+  				<button class="card__btn js-form-btn" type="submit">Заказать</button>
+
         </div>
-    </section>
-    
-    <section class="home-three">
-        <div class="container">
-            <h2 class="h2">Как работает абонемент</h2>
-            <div class="home-three-block">
-                <div class="home-three-item">
-                    <div class="home-two-item-top">
-                        <div class="icon">
-                            <img src="img/004-icon.svg">
-                        </div>
-                        <span>Что дает абонемент</span>
-                    </div>
-                    <span class="descriptions">Абонемент дает право получать в центрах сети SPBTHAI любые услуги для одного, представленные на сайте, без дополнительной платы и неограниченное количество раз.</span>
-                </div>
-                <div class="home-three-item">
-                    <div class="home-two-item-top">
-                        <div class="icon">
-                            <img src="img/005-icon.svg">
-                        </div>
-                        <span>Сроки действия</span>
-                    </div>
-                    <span class="descriptions">Абонемент начинает действовать с момента подписания договора и действует напротяжении срока, указанного в договоре.</span>
-                </div>
-            </div>
-            <div class="home-three-bottom">
-                <div class="icon icon-hid hidden">
-                    <img src="img/icon-who.svg">
-                </div>
-                <span class="home-three-hid hidden">Кто может пользоваться</span>
-                <span class="home-three-text">Действие абонемента распространяется на лицо, купившее абонемент и не <br>подлежит передаче третьим лицам.</span>
-            </div>
-            <a href="./checkout.html" class="button">
-                <span>Купить абонемент</span>
-                <img src="img/Shape.svg">
-            </a>
-        </div>
+
+			</section>
+		</form>
+
+    <section class="popup hidden js-popup">
+      <div class="popup__content">
+      <h2>спасибо за ваш заказ.</h2>
+      <p>В течение 10 минут мы позвоним вам, чтобы согласовать время подписания договора.</p>
+      <button type="button" class="js-popup-btn">Ок</button>
+    </div>
     </section>
 
-    <section class="home-seven">
-        <div class="container">
-            <h2 class="h2">Выберите <br class="br-moile">свой <br class="br-moile">абонемент</h2>
-            <span class="h2-text">Абонементы на безлимитное посещение центров сети SPBTHAI</span>
-            <div class="home-seven-block">
-                <div class="home-seven-item" style="background: url(img/017-img.png) top center; background-size: cover;">
-                    <img src="img/020-img.png">
-                    <h3>На 2,5 месяца</h3>
-                    <span>Цена: <strong>50 000 руб.</strong></span>
-                </div>
-                <div class="home-seven-item" style="background: url(img/018-img.png) top center; background-size: cover;">
-                    <img src="img/021-img.png">
-                    <h3>На 4 месяца</h3>
-                    <span>Цена: <strong>75 000 руб.</strong></span>
-                </div>
-                <div class="home-seven-item" style="background: url(img/019-img.png) top center; background-size: cover;">
-                    <img src="img/022-img.png">
-                    <h3>На 6 месяцев</h3>
-                    <span>Цена: <strong>100 000 руб.</strong></span>
-                </div>
-            </div>
-            <a href="./checkout.html" class="button">
-                <span>Купить абонемент</span>
-                <img src="img/Shape.svg">
-            </a>
-            <span class="qant">Осталось 10 штук</span>
-            <span class="h2-text-2">Ограниченная серия абонементов выпущена для проодажи по<br> акции "Черная пятница". Повторный выпуск не планируется.</span>
-        </div>
-    </section>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery.validate.min.js"></script>
 
-    <section class="home-six">
-        <div class="container">
-            <h2 class="h2">Только тайские мастера</h2>
-            <span class="h2-text">Представитель SPBTHAI в Таиланде выбирает лучших мастеров</span>
-            <div class="home-six-block">
-                <div class="home-six-item">
-                    <div class="img" style="background: url(img/Malai-Banjong.jpg) bottom right; background-size: cover;"></div>
-                    <div class="text-box">
-                        <span class="title">Malai Banjong</span>
-                        <span>Kamphaeng Phet, Thailand</span>
-                    </div>
-                </div>
+    <script src="./js/jquery.inputmask.js"></script>
+    <script src="./js/pickmeup.min.js"></script>
 
-                <div class="home-six-item">
-                    <div class="img" style="background: url(img/Srisuda-Aonsri.jpg) bottom right; background-size: cover;"></div>
-                    <div class="text-box">
-                        <span class="title">Srisuda Aonsria</span>
-                        <span>Srisaket, Thailand</span>
-                    </div>
-                </div>
+    <script src="./js/checkout.js"></script>
 
-                <div class="home-six-item">
-                    <div class="img" style="background: url(img/Rundrawan-Thubsuri.jpg) bottom right; background-size: cover;"></div>
-                    <div class="text-box">
-                        <span class="title">Rundrawan Thubsuri</span>
-                        <span>Kalasin, Thailand</span>
-                    </div>
-                </div>
+	</body>
 
-                <div class="home-six-item">
-                    <div class="img" style="background: url(img/Kruawan-Timan.jpg) bottom right; background-size: cover;"></div>
-                    <div class="text-box">
-                        <span class="title">Kruawan Timan</span>
-                        <span>Chiang Rai, Thailand</span>
-                    </div>
-                </div>
-
-                <div class="home-six-item">
-                    <div class="img" style="background: url(img/Natsurang-Wiraangkhakun.jpg) bottom right; background-size: cover;"></div>
-                    <div class="text-box">
-                        <span class="title">Natsurang Wiraangkhakun</span>
-                        <span>Nakhon Sawan, Thailand</span>
-                    </div>
-                </div>
-
-                <div class="home-six-item">
-                    <div class="img" style="background: url(img/Nittaya-Mutara.jpg) bottom right; background-size: cover;"></div>
-                    <div class="text-box">
-                        <span class="title">Nittaya Mutara</span>
-                        <span>Phitsanulok, Thailand</span>
-                    </div>
-                </div>
-
-                <div class="home-six-item">
-                    <div class="img" style="background: url(img/Patcharin-Inthamart.jpg) bottom right; background-size: cover;"></div>
-                    <div class="text-box">
-                        <span class="title">Patcharin Inthamart</span>
-                        <span>Nakhon Pathom, Thailand</span>
-                    </div>
-                </div>
-
-                <div class="home-six-item">
-                    <div class="img" style="background: url(img/Khamjandee-Jarawee.jpg) bottom right; background-size: cover;"></div>
-                    <div class="text-box">
-                        <span class="title">Khamjandee Jarawee</span>
-                        <span>Kalasin, Thailand</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="home-four">
-        <div class="container">
-            
-            <h2 class="h2">Каждый центр SPBTHAI - <br class="br-moile">это</h2>
-            <div class="home-four-block">
-                <div class="home-four-item" style="background: url(img/008-img.jpg) bottom right; background-size: cover;">
-                    <span class="number">3</span>
-                    <span>профессиональных <br>мастера из <br>Таиланда</span>
-                </div>
-                <div class="home-four-item" style="background: url(img/009-img.jpg) bottom right; background-size: cover;">
-                    <span class="number">2</span>
-                    <span>массажных <br>комнаты для <br>двоих</span>
-                </div>
-                <div class="home-four-item" style="background: url(img/010-img.jpg) bottom right; background-size: cover;">
-                    <span>Приятный <br>дизайн <br>интерьера</span>
-                </div>
-                <div class="home-four-item" style="background: url(img/011-img.jpg) bottom right; background-size: cover;">
-                    <span class="number">3</span>
-                    <span>просторных <br>массажных комнаты, <br>оборудованных <br>кедровыми <br>бочками, душевыми<br> и зонами отдыха</span>
-                </div>
-            </div>
-            <a href="./checkout.html" class="button">
-                <span>Купить абонемент</span>
-                <img src="img/Shape.svg">
-            </a>
-        </div>
-    </section>
-    
-
-        
-    <section class="home-eight">
-        <div class="container" >
-            <div class="home-eight-left">
-                <h2 class="h2"><text>о</text>стались <br>вопрoсы? <br>Звоните! </h2>
-            </div>
-            <div class="home-eight-right" style="background: url(img/023-img.jpg) center center; background-size: cover;"></div>
-        </div>
-    </section>
-    
-    <section class="home-nine">
-        <div class="container">
-            <div class="home-nine-item">
-                <div class="adress"><img src="img/006-icon.svg"><strong>Фрунзенская</strong><text> | </text><span>Смоленская ул., 14</span></div>
-                <span class="phone">+7 (812) 445-89-71</span>
-            </div>
-            <div class="home-nine-item">
-                <div class="adress"><img src="img/006-icon.svg"><strong>Московская</strong><text> | </text><span>Московский пр., 183-185Б</span></div>
-                <span class="phone">+7 (812) 445-64-63</span>
-            </div>
-            <div class="home-nine-item">
-                <div class="adress"><img src="img/006-icon.svg"><strong>Парк Победы</strong><text> | </text><span>пл. Чернышевского, 6</span></div>
-                <span class="phone">+7 (812) 445-64-47</span>
-            </div>
-        </div>
-    </section>
-        
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-left">
-                <img src="img/logo.svg">
-                <div class="header-left">
-                    <a href="https://www.instagram.com/spbthai_massage_spa" class="sosial-item">
-                        <img src="img/001-icon.svg">
-                        <span>Instagram</span>
-                    </a>
-                    <a href="https://vk.com/spbthai_ru" class="sosial-item">
-                        <img src="img/002-icon.svg">
-                        <span>Вконтакте</span>
-                    </a>
-                </div>
-                <span class="footer-text">СПА-центры Тайского массажа в СПб. <br>ООО "Океан", ИНН 7810683157, ОГРН 1177847162074, <br>Лицензия № ЛО-78-01-010417 от 10 декабря 2019 года.<br> <a href="/">Политика конфиденциальности</a></span>
-            </div>
-            <div class="footer-center">
-                <div class="logos">
-                    <img src="img/yandex.png">
-                    <div class="border"></div>
-                    <img src="img/visa.png">
-                    <div class="border"></div>
-                    <img src="img/master.png">
-                </div>
-                <span>Мы принимаем оплату картой в <br>наших салонах и онлайн при <br>заказе на сайте, <a href="/">все способы <br>оплаты</a> и <a href="/">возврата</a></span>
-            </div>
-            <div class="footer-right">
-                <span>Все права защищены © 2010-2020 <br>Копирование информации с сайта только <br>по запросу правообладателя.</span>
-            </div>
-        </div>
-    </footer>
-    
-    
-    
-    
-    
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-</body>
 </html>
